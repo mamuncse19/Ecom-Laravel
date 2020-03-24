@@ -16,7 +16,6 @@
     <link href="{{asset('admin_css_js/lib/select2/css/select2.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
-
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('admin_css_js/css/starlight.css')}}">
   </head>
@@ -42,8 +41,7 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{-- {{route('categories')}} --}}" class="nav-link">Category</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
+          <li class="nav-item"><a href="{{route('categories')}}" class="nav-link">Add Category</a></li>
           <li class="nav-item"><a href="{{-- {{route('brands')}} --}}" class="nav-link">Brand</a></li>
         </ul>
         <a href="#" class="sl-menu-link">

@@ -1,0 +1,546 @@
+/* medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+	
+		/* Home page responsive css */
+	
+	.header_top_search input {width: 350px;}
+	
+	.main_menu ul li {padding: 25px 16px;}
+	.main_menu ul li a {font-size: 22px;}
+	
+	.product_list__right img {height: 225px;}
+	.product_deatails_btn_left {margin-top: 220px; margin-left: 102px;}
+	
+	.nav-item {width: 210px;}
+	.gerlly_item.gerlly {width: 200px;}
+	.feature_hover h2 {font-size: 22px;}
+	
+	#countdown_sec {margin-left: -233px;}
+	
+	.big_hor::before {border-left: 143px solid #039445;border-right: 155px solid #039445;bottom: -16px;left: 32%;}
+	.big_hor::after {left: 45%;padding: 2px 2px 2px 28px;}
+	.small_hor::before {left: 36%;}
+	
+	.single_product {width: 210px; height: 400px;}
+	.single_product img {height: 320px;}
+	
+	.item_content h3 {font-size: 20px;}
+	.item_content {width: 200px;}
+	
+	.newsletter_form input {width: 400px;}
+	
+	.footer_social_nav ul li {margin-right: 8px;}
+	
+	
+	/* about page responsive css */
+	
+	.top-content {font-size: 20px;width: 480px;margin-left: 60px;}
+	.abouttext-right h3 {margin-left: -25px;font-size: 25px;}
+	.abouttext-right {margin-top: -40px;}
+	.abouticon-left {margin-left: 40px;}
+	
+	
+	.team_slide {width: 225px;}
+	
+	
+	
+	/* contact page responsive css */
+	
+	
+	.map_box iframe {width: 440px;}
+	.send_mess input {width: 450px;}
+	.send_mess textarea {width: 915px;}
+	
+	
+	
+	/* Login page responsive css */
+	
+	.user, .lock {width: 455px;}
+	.submit {width: 455px;}
+	
+	
+	
+	/* payment page responsive css */
+	.nav-item {width: 200px;}
+	.nav-item {font-size: 14px;}
+	.biller_address_name.credit_form_control, .credit_number.credit_card_number.credit_form_control, .credit_security-code.credit_form_control, .xpiration_month_and_year.credit_form_control {width: 760px;}
+	.pay_img img {width: 380px;height: 380px;}
+	.pay_img p {font-size: 15px;margin-left: 75px;}
+	.payment_btn {margin-top: 10px;margin-left: 80px;}
+	
+	
+	
+	/* Product page responsive css */
+	.inner-men-cart .link-product-add-cart {width: 210px;}
+	.search_product input {width: 125px;}
+	.has_sub {font-size: 18px;}
+	.main_nav_ul li ul li {font-size: 15px;}
+	
+	
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+	
+		/* Home page responsive css */
+		
+	.header_top_search {margin-left: 20px;}
+	
+	.header_cart {padding-right: 24px;}
+	
+	.header_top_search input {width: 170px;}
+	
+	.main_menu ul li {padding: 25px 8px;}
+	.main_menu ul li a {font-size: 18px;}
+	
+	.product_deatails_btn_right {margin-left: 63px; margin-top: 8px;}
+	.details_btn_left, .details_btn_right {padding: 6px 5px;font-size: 20px;}
+	.product_deatails_btn_left {margin-left: 70px;margin-top:150px;}
+	
+	.product_list__right img {height: 225px;}
+	
+	.big_hor::before {left: 26%;}
+	.big_hor::after {left: 46%; padding: 2px 2px 2px 15px;}
+	.small_hor::before {border-left: 106px solid #039445; border-right: 103px solid #039445; left: 32%;}
+	.freture_tab_area h4 {font-size: 17px;}
+	.nav-item {width: 150px;}
+	
+	.view_product_caption del {margin-left: 25px;}
+	
+	.gerlly_item.gerlly {width: 198px;}
+	.col-sm-4.col-md-3.item_grids {max-width: 33.33%;}
+	.view_product_caption h4 a {font-size: 15px;}
+	
+	
+	#countdown_sec {margin: 0px 0px 0px -255px;}
+	canvas{width:140px;height:140px;}
+	.ClassyCountdown-wrapper > div {margin: 10px 24px 10px 5px;}
+	
+	.single_product {margin-left: 35px;}
+	.item a {width: 70px; height: 70px; font-size: 40px;  line-height: 45px;}
+	.item_content.text-left {margin-top: 30px;margin-left: 2px;width:200px;}
+	
+	
+	.service_content_area {margin-left: 15px;}
+	.serv {padding: 105px 0;}
+	.item_content h3 {font-size: 20px;}
+	.text-left {margin-left: 50px;}
+	.item_content p {font-size: 12px;text-align: center;margin-left: -22px;}
+	
+	
+	.newsletter_content h3 {font-size: 25px;}
+	.newsletter_content p {font-size: 16px;}
+	
+	.newsletter_form input {width: 260px;}
+	
+	.footer_title h2 {font-size: 25px;}
+	.footer_about_text p {font-size: 12px;}
+	.footer_menu ul li, .footer_category ul li, .footer_account ul li {margin-left: 42px;}
+	.footer_social_nav ul li {margin-right: -1px;}
+	.footer_social_nav ul li a {width: 35px;height: 35px;font-size: 20px;}
+	.footer_about_text {margin-bottom: 130px;}
+	
+	
+	
+	/* about page responsive css */
+	
+	.about_right_content {margin-left: 60px;}
+	.top-content {font-size: 18px;width: 375px;}
+	.about_left_img img {width: 320px;}
+	.abouttext-right {margin-top: 18px;}
+	.abouttext-right h3 {margin-left: -50px;font-size: 16px;}
+	.abouttext-right p {font-size: 15px;}
+	.team_slide {width: 220px;}
+	
+	
+	
+	
+	/* contact page responsive css */
+	
+	.map_box iframe {width: 330px;}
+	.send_mess input {width: 330px;}
+	.send_mess textarea {width: 675px;}
+	
+	
+	/* logIn page responsive css */
+	.user, .lock {width: 325px;}
+	.submit {width: 325px;}
+	.checkbox {font-size: 18px;}
+	.forgot {margin-top: -35px;}
+	.forgot a {font-size: 18px;}
+	
+	
+	/* SignUp page responsive css */
+	.main_menu ul li .Mega_menu {width: 662px;}
+	
+	
+	
+	/* payment page responsive css */
+	
+	.nav-item {font-size: 12px;letter-spacing: 0px;margin-right:0px;}
+	.check_box_one.cashon_delivery label {font-size: 13px;}
+	.biller_address_name.credit_form_control, .credit_number.credit_card_number.credit_form_control, .credit_security-code.credit_form_control, .xpiration_month_and_year.credit_form_control {width: 530px;}
+	
+	.text-left {margin-left: 0px;}
+	.pay_img img {width: 300px;height: 350px;}
+	.pay_img {right: 20px;}
+	.pay_img p {font-size: 13px;margin-left: 25px;}
+	.payment_btn {margin-left: 26px;}
+	
+	
+	
+	/* Product page responsive css */
+	.col {flex: 50%; max-width: 50%; margin-bottom: 25px}
+	.inner-men-cart .link-product-add-cart {width: 240px;}
+	.text-left {margin-left: 50px;}
+	.search_product, .Category {margin-left: -75px;}
+	.search_product input {width: 150px;}
+	
+	.main_nav {margin-left: -75px;}
+	.has_sub {font-size: 18px;}
+	.main_nav_ul li ul li {font-size: 15px;}
+	
+	
+	
+	
+	
+	
+	
+}
+	 
+
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+	
+		/* Home page responsive css */
+	
+	.logo {margin: 40px 0px 0px 0; text-align: center;}
+	.header_top_search input {width: 200px;margin-top: 50px;}
+	.search_btn {margin-top: 50px;}
+	
+	.header_cart {margin: 15px 20px 20px 20px;}
+	.myaccount {margin-right: 50px;}
+	.myaccount a {padding-top: 25px;display: inline-block;}
+	
+	
+	
+	.main_menu {display: none;}
+	.responsive_menu_wrap {display: block;}
+	.slicknav_menu {background: none;}
+	.slicknav_nav li .Mega_menu {visibility: hidden;height: 0;}
+	.slicknav_nav li:hover .Mega_menu {visibility: visible;height: 470px;}
+	.slicknav_btn {background-color: rgba(3,148,69, .7);margin-right: 95px;}
+	
+	.slider_text_bg h2 {font-size: 40px;}
+	.slider_text_bg {width: 290px;}
+	.single_slide_item h4 {font-size: 20px;}
+	.owl-prev {left: 8px;font-size: 30px !important;}
+	.owl-next {right: 8px;font-size: 30px !important;}
+	.slide_btn {font-size: 22px;padding: 5px 20px;}
+	.single_slide_item {height: 600px;}
+	
+	.big_hor::after {left: 40%;}
+	.gerlly_item.gerlly {width: 255px;}
+	.product_deatails_btn_left {margin-left: 33px;}
+	.details_btn_left, .details_btn_right {font-size: 20px;}
+	
+	.product_list_left img {height: 400px;}
+	.product_list__right {margin-top: 50px;margin-bottom: -20px;}
+	.product_list__right img {height: 190px;}
+	.product_top_nam_right h2 {font-size: 28px;}
+	.details h4 {font-size: 22px;}
+	.product_deatails_btn_right {margin-left: 45px; font-size: 15px !important; padding: 5px 15px}
+	
+	
+	.feature_products_area {padding: 40px 0;}
+	.feature_title h2 {font-size: 20px;}
+	.big_hor::before {border-left: 80px solid #039445;border-right: 80px solid #039445;left: 16%;width: 205px;}
+	.small_hor::before {border-left: 70px solid #039445;border-right: 70px solid #039445;left: 16%;width: 205px;}
+	
+	.countdown_title {left: 16%;}
+	.countdown_title h2 {font-size: 20px;}
+	.countdown_title p {font-size: 16px;}
+	#countdown_sec {margin: 0px 0px 0px -242px;}
+	
+	canvas{width:70px;height:70px;}
+	.ClassyCountdown-value {font-size: 20px !important;margin-top: -22px !important;}
+	.ClassyCountdown-wrapper > div {margin: -10px 50px 50px 10px;}
+	
+	.item a {width: 70px;height: 70px;font-size: 40px;line-height: 50px;margin-left: 100px;}
+	.item_content {margin: 25px 0 0 35px;text-align: center !important;}
+	.item_content p {text-align: center;}
+	.serv {padding: 80px 0 180px 0;}
+	.service_area {height: 850px;}
+	.item_content h3 {font-size: 20px;}
+	
+	.newsletter_content h3 {font-size: 25px;}
+	.newsletter_content p {font-size: 18px;}
+	.newsletter_form input {width: 275px;}
+	.form_btn {padding: 10px 91px;font-size: 19px;letter-spacing: 1px;}
+	
+	.footer_social_nav {margin-left: 30px;}
+	.footer_menu ul li {text-align: center;margin-left: 0px;}
+	.footer_title {margin-top: 22px;}
+	.footer_category ul li {margin-left: 0;text-align: center;}
+	.footer_account ul li {margin-left: 0px;text-align: center;}
+	.footer_account ul {margin-bottom: 30px;}
+	.footer_copy h4 {font-size: 18px;}
+	
+	
+
+
+	/* about page responsive css */
+	
+	.top-content {font-size: 18px;width: 270px;}
+	.about_left_img img {width: 290px;}
+	.abouticon-left {font-size: 30px;}
+	.abouttext-right {margin-top: -30px;}
+	.abouttext-right h3 {margin-left: 18px;font-size: 14px;}
+	.abouttext-right p {margin-left: -5px;font-size: 15px;margin-bottom: -70px;}
+	.team_title h2 {font-size: 30px;}
+	.owl-previous {top: 475px;left: 65px;}
+	.owl-nextt {top: 475px;right: 130px;}
+	.item_content {margin: 25px 0 0 20px;}
+	.newsletter_content {text-align: center;}
+	.form_btn {padding: 10px 84px;font-size: 20px;letter-spacing: 2px;}
+	.newsletter_btn {margin-left: 0px;}
+	
+	
+	/* contact page responsive css */
+	.Contact_title h2 {font-size: 40px;}
+	.map_box iframe {width: 285px;}
+	.map_box h2 {font-size: 22px;}
+	.send_mess input {width: 285px;margin-top: 15px;}
+	.send_mess textarea {width: 285px;}
+	
+	
+	/* logIn page responsive css */
+	.login_body {width: 80%;}
+	.user, .lock {width: 200px;margin: 35px 30px -10px 25px;}
+	.submit {width: 200px;margin: 35px 0px 10px 25px;}
+	.forgot {margin-right: 48px;margin-top: 0px;}
+	.login_body h6 {font-size: 15px;}
+	.login_body h6 a {padding-left: 20px;font-size: 15px;}
+	.login-page-bottom_area.social-icons h5 {font-size: 15px;}
+	
+	
+	/* SignUp page responsive css */
+	.login_title h2 {font-size: 20px;}
+	.login_body h6 a {padding-left: 15px;font-size: 15px;}
+	
+	
+	/* payment page responsive css */
+	
+	.nav-tabs {width: 280px;margin-left: -87px;}
+	#nav-tabContent {width: 280px;margin-left: -90px;}
+	.check_box_one.cashon_delivery label {font-size: 12px;line-height: 25px;}
+	
+	.cre_beb_label {margin-left: 25px;}
+	.biller_address_name.credit_form_control, .credit_number.credit_card_number.credit_form_control, .credit_security-code.credit_form_control, .xpiration_month_and_year.credit_form_control {width: 230px;margin-left: 25px;}
+	.submits {margin-left: 25px;width: 230px;letter-spacing: 1px;font-size: 15px;}
+	
+	.payment_radio_button h2 {font-size: 15px;padding: 30px 0 0 30px;}
+	.net_banking h5 {margin-left: 30px;font-size: 20px;}
+	.section_bank_pay {margin: 20px 0px 30px 30px;}
+	.bank_name {width: 230px;}
+	.paynow_btn {margin: 0px 0px 60px 30px;}
+	
+	.paypal_area_left h2 {font-size: 18px;}
+	.paypal_account_area {height: 1100px;}
+	.pay_img {top: 880px;right: -75px;}
+	.pay_img img {width: 270px;height: 270px;}
+	.pay_img p {font-size: 15px;margin-left: 205px;}
+	.payment_paypal_btn {font-size: 15px;width: 250px;margin-left: 205px;}
+	
+	
+	/* Product page responsive css */
+	.main_nav {margin-left: 0px;}
+	.top {margin-top: 100px;}
+	.inner-men-cart .link-product-add-cart {width: 285px;}
+	.col {margin-bottom: 30px;}
+	
+	
+	/* checkout  page responsive css */
+	
+	.timetable_sub th, .timetable_sub td {font-size: 10px;}
+	.invertor-image img {width: 35px;height: 50px;}
+	
+	.value-minus, .value-plus {height: 30px;width: 30px;}
+	.value {width: 30px;height: 30px;}
+	.close_icon1, .close_icon2, .close_icon3 {width: 30px;height: 30px;}
+	.submit_btn {font-size: 14px;}
+
+	
+}
+
+/* wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px){
+	
+		/* Home page responsive css */
+		
+	.logo {text-align: left;}
+	.header_top_search input {margin-top: -65px;}
+	.header_top_search {margin-left: 200px;}
+	.search_btn {margin: -65px 30px 0px 175px;}
+	.header_top_search input {width: 180px;}
+	
+	.header_cart {margin: 35px 20px 20px 135px;}
+	.myaccount {margin-right: 95px;padding-top: 20px !important;}
+	.myaccount a {padding-top: 25px;display: inline-block;}
+	
+	
+	
+	.main_menu {display: none;}
+	.responsive_menu_wrap {display: block;}
+	.slicknav_menu {background: none;}
+	.slicknav_nav li .Mega_menu {visibility: hidden;height: 0;}
+	.slicknav_nav li:hover .Mega_menu {visibility: visible;height: 470px;}
+	.slicknav_btn {background-color: rgba(3,148,69, .7);margin-right: 200px;}
+	
+	.slider_text_bg h2 {font-size: 40px;}
+	.slider_text_bg {width: 290px;}
+	.single_slide_item h4 {font-size: 20px;}
+	.owl-prev {left: 8px;font-size: 30px !important;}
+	.owl-next {right: 8px;font-size: 30px !important;}
+	.slide_btn {font-size: 22px;padding: 5px 20px;}
+	.single_slide_item {height: 600px;}
+	
+	.big_hor::after {left: 43%;}
+	.gerlly_item.gerlly {width: 476px;}
+	.product_deatails_btn_left {margin-left: 135px;}
+	.details_btn_left, .details_btn_right {font-size: 20px;}
+	.nav-item {width: 225px;}
+	.view_product_caption del {margin-left: 120px;}
+	
+	.product_list_left img {height: 400px;}
+	.product_list__right {margin-top: 50px;margin-bottom: -20px;}
+	.product_list__right img {height: 190px;}
+	.product_top_nam_right h2 {font-size: 28px;}
+	.details h4 {font-size: 22px;}
+	.product_deatails_btn_right {margin-left: 45px; font-size: 15px !important; padding: 5px 15px}
+	
+	
+	.feature_products_area {padding: 40px 0;}
+	.feature_title h2 {font-size: 20px;}
+	.big_hor::before {border-left: 80px solid #039445;border-right: 80px solid #039445;left: 29%;width: 205px;}
+	.small_hor::before {border-left: 70px solid #039445;border-right: 70px solid #039445;left: 29%;width: 205px;}
+	
+	.countdown_title {left: 30%;}
+	.countdown_title h2 {font-size: 20px;}
+	.countdown_title p {font-size: 16px;}
+	#countdown_sec {margin: 0px 0px 0px -242px;}
+	
+	canvas{width:70px;height:70px;}
+	.ClassyCountdown-value {font-size: 20px !important;margin-top: -22px !important;}
+	.ClassyCountdown-wrapper > div {margin: -10px 35px 50px 10px;}
+	
+	.item a {width: 70px;height: 70px;font-size: 40px;line-height: 50px;margin-left: 100px;}
+	.item_content {margin: 25px 0 0 15px;text-align: center !important;}
+	.item_content p {text-align: center;}
+	.serv {padding: 80px 0 180px 0;}
+	.service_area {height: 850px;}
+	.item_content h3 {font-size: 20px;}
+	.service_content_area {left: 100px;}
+	
+	
+	.newsletter_content {text-align: center;}
+	.newsletter_content h3 {font-size: 25px;}
+	.newsletter_content p {font-size: 18px;}
+	.newsletter_form input {width: 420px;}
+	.newsletter_btn {margin-left: 0px;}
+	.form_btn {padding: 10px 199px;font-size: 19px;letter-spacing: 2px;}
+	
+	.footer_social_nav {margin-left: 30px;}
+	.footer_menu ul li {text-align: center;margin-left: 0px;}
+	.footer_title {margin-top: 22px;}
+	.footer_category ul li {margin-left: 0;text-align: center;}
+	.footer_account ul li {margin-left: 0px;text-align: center;}
+	.footer_account ul {margin-bottom: 30px;}
+	.footer_copy h4 {font-size: 18px;}
+	
+	
+	
+	/* about page responsive css */
+	
+	.top-content {font-size: 18px;width: 270px;}
+	.about_left_img img {width: 290px;}
+	.abouticon-left {font-size: 30px;}
+	.abouttext-right {margin-top: -30px;}
+	.abouttext-right p {margin-left: -5px;font-size: 15px;margin-bottom: -70px;}
+	
+	.team_title h2 {font-size: 30px;}
+	.owl-previous {top: 475px;left: 65px;}
+	.owl-nextt {top: 475px;right: 130px;}
+	
+	.about_left_img img {width: 425px;}
+	.top-content {font-size: 18px;width: 420px;}
+	.abouttext-right {margin-top: -32px;}
+	.abouttext-right h3 {margin-left: 20px;font-size: 20px;}
+	.big_hor::after {left: 45%;}
+	.team_slide {margin-left: 90px;}
+	.owl-previous {top: 475px;left: 100px;}
+	.owl-nextt {top: 475px;right: 115px;}
+	
+	.item_content {margin: 25px 0 0 20px;}
+	.newsletter_content {text-align: center;}
+	.form_btn {padding: 10px 157px;font-size: 20px;letter-spacing: 2px;}
+	.newsletter_btn {margin-left: 0px;}
+	
+	
+	
+	
+	/* contact page responsive css */
+	.Contact_title h2 {font-size: 40px;}
+	.map_box iframe {width: 285px;}
+	.map_box h2 {font-size: 22px;}
+	.send_mess input {width: 285px;margin-top: 15px;}
+	.send_mess textarea {width: 285px;}
+	
+	
+	/* logIn page responsive css */
+	.login_body {width: 80%;}
+	.user, .lock {width: 200px;margin: 35px 30px -10px 25px;}
+	.submit {width: 200px;margin: 35px 0px 10px 25px;}
+	.forgot {margin-right: 48px;margin-top: 0px;}
+	.login_body h6 {font-size: 15px;}
+	.login_body h6 a {padding-left: 20px;font-size: 15px;}
+	.login-page-bottom_area.social-icons h5 {font-size: 15px;}
+	
+	
+	/* SignUp page responsive css */
+	.login_title h2 {font-size: 20px;}
+	.login_body h6 a {padding-left: 15px;font-size: 15px;}
+	
+	
+	/* payment page responsive css */
+	
+	.nav-tabs {width: 280px;margin-left: -87px;}
+	#nav-tabContent {width: 280px;margin-left: -90px;}
+	.check_box_one.cashon_delivery label {font-size: 12px;line-height: 25px;}
+	
+	.cre_beb_label {margin-left: 25px;}
+	.biller_address_name.credit_form_control, .credit_number.credit_card_number.credit_form_control, .credit_security-code.credit_form_control, .xpiration_month_and_year.credit_form_control {width: 230px;margin-left: 25px;}
+	.submits {margin-left: 25px;width: 230px;letter-spacing: 1px;font-size: 15px;}
+	
+	.payment_radio_button h2 {font-size: 15px;padding: 30px 0 0 30px;}
+	.net_banking h5 {margin-left: 30px;font-size: 20px;}
+	.section_bank_pay {margin: 20px 0px 30px 30px;}
+	.bank_name {width: 230px;}
+	.paynow_btn {margin: 0px 0px 60px 30px;}
+	
+	.paypal_area_left h2 {font-size: 18px;}
+	.paypal_account_area {height: 1100px;}
+	.pay_img {top: 880px;right: -75px;}
+	.pay_img img {width: 270px;height: 270px;}
+	.pay_img p {font-size: 15px;margin-left: 205px;}
+	.payment_paypal_btn {font-size: 15px;width: 250px;margin-left: 205px;}
+	
+	
+	/* Product page responsive css */
+	.main_nav {margin-left: 0px;}
+	.top {margin-top: 100px;}
+	.inner-men-cart .link-product-add-cart {width: 285px;}
+	.col {margin-bottom: 30px;}
+	
+}

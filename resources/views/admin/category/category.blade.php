@@ -25,9 +25,11 @@ Category
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-20p">ID</th>
-                  <th class="wd-50p">Category Name</th>
-                  <th class="wd-30p">Action</th>
+                  <th class="wd-10p">ID</th>
+                  <th class="wd-25p">Category Name</th>
+                  <th class="wd-20p">Parent</th>
+                  <th class="wd-25p">Image</th>
+                  <th class="wd-20p">Action</th>
                   
                 </tr>
               </thead>
@@ -35,10 +37,18 @@ Category
               	@foreach($category as $row)
                 <tr>
                   <td>{{$row->id}}</td>
-                  <td>{{$row->category_name}}</td>
+                  <td>{{$row->name}}</td>
                   <td>
-                  	<a href="{{URL::to('category/edit/'.$row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                  	<a href="{{url('category/delete/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                    @if($row->parent_id==NULL)
+                    {{$row->name}}
+                    @else
+                    {{$row->parent->name}}
+                    @endif
+                  </td>
+                  <td><img src="{{asset('images/category/'.$row->image)}}" style="width: 70px;height: 50px;"/></td>
+                  <td>
+                  	<a href="{{route('category.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                  	<a href="{{route('category.delete',$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                   </td>
                 </tr>
                 @endforeach
@@ -57,10 +67,24 @@ Category
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form method="post" action="{{route('category.insert')}}">
+              <form method="post" action="{{route('category.store')}}" enctype="multipart/form-data">
               	@csrf
               <div class="modal-body pd-20" style="width:500px;">
-                <input class="form-control" placeholder="Category Name" name="category_name" type="text">
+                <label>Name</label>
+                <input class="form-control" placeholder="Category Name" name="name" type="text" >
+                <label>Description</label>
+                <textarea class="form-control" placeholder="Description here" name="description" type="text" ></textarea>
+                <label>Parent</label>
+                
+                <select class="form-control select2" name="parent_id">
+                  <option value="">Choose</option>
+                 @foreach($parent_cat as $mainCat)
+                 <option value="{{$mainCat->id}}">{{$mainCat->name}}</option>
+                 @endforeach
+                </select>
+              
+                <label>Image</label>
+                <input class="form-control" name="image" type="file" tabindex="4">
               </div><!-- modal-body -->
               <div class="modal-footer">
                 <button type="submit" class="btn btn-info pd-x-20">Save</button>

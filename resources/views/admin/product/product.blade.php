@@ -25,12 +25,12 @@ Product
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-20p">ID</th>
-                  <th class="wd-50p">Product Title</th>
-                  <th class="wd-50p">Price</th>
-                  <th class="wd-50p">Quantity</th>
-                  <th class="wd-50p">Image</th>
-                  <th class="wd-30p">Action</th>
+                  <th class="wd-10p">ID</th>
+                  <th class="wd-30p">Product Title</th>
+                  <th class="wd-10p">Price</th>
+                  <th class="wd-10p">Quantity</th>
+                  <th class="wd-20p">Image</th>
+                  <th class="wd-20p">Action</th>
                   
                 </tr>
               </thead>
@@ -46,15 +46,15 @@ Product
                   @endphp
                   @foreach($row->images as $image)
                   @if($i>0)
-                  <td><img src="{{url($image->image)}}" style="height: 50px; width: 70px;"></td>
+                  <td><img src="{{asset('images/product/'.$image->image)}}" style="height: 50px; width: 70px;"></td>
                   @endif
                    @php 
                   $i--;
                   @endphp
                   @endforeach
                   <td>
-                  	<a href="{{-- {{URL::to('Product/edit/'.$row->id)}} --}}" class="btn btn-sm btn-info">Edit</a>
-                  	<a href="{{-- {{url('Product/delete/'.$row->id)}} --}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                  	<a href="{{url('admin/edit/'.$row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                  	<a href="{{url('admin/delete/'.$row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
                   </td>
                 </tr>
                 @endforeach
