@@ -25,6 +25,14 @@ Route::prefix('admin')->group(function(){
 	Route::post('/category/update/{id}','Admin\CategoryController@update')->name('category.update');
 	Route::get('/category/delete/{id}','Admin\CategoryController@delete')->name('category.delete');
 });
+// Brand Routes
+Route::prefix('admin')->group(function(){
+	Route::get('/brands','Admin\BrandController@index')->name('brands');
+	Route::post('/brand/store','Admin\BrandController@store')->name('brand.store');
+	Route::get('/brand/edit/{id}','Admin\BrandController@edit')->name('brand.edit');
+	Route::post('/brand/update/{id}','Admin\BrandController@update')->name('brand.update');
+	Route::get('/brand/delete/{id}','Admin\BrandController@delete')->name('brand.delete');
+});
 
 
 

@@ -2,6 +2,12 @@
 @section('title')
 Category
 @endsection
+@section('head-nav')
+<nav class="breadcrumb sl-breadcrumb">
+        <a class="breadcrumb-item" href="{{url('admin/')}}">Dashboard</a>
+        <span class="breadcrumb-item active">Category</span>
+      </nav>
+@endsection
 @section('MainContent')
 <div class="sl-pagebody">
         <div class="sl-page-title">

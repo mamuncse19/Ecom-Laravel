@@ -42,11 +42,20 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('categories')}}" class="nav-link">Add Category</a></li>
-          <li class="nav-item"><a href="{{-- {{route('brands')}} --}}" class="nav-link">Brand</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+            <span class="menu-item-label">Brand</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('brands')}}" class="nav-link">Add Brand</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon fa fa-product-hunt tx-20"></i>
             <span class="menu-item-label">Product</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
@@ -231,10 +240,7 @@
 
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
-      <nav class="breadcrumb sl-breadcrumb">
-        <a class="breadcrumb-item" href="index.html">Starlight</a>
-        <span class="breadcrumb-item active">Dashboard</span>
-      </nav>
+      @yield('head-nav')
 
       <div class="sl-pagebody">
 

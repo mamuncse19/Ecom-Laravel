@@ -2,6 +2,12 @@
 @section('title')
 Product
 @endsection
+@section('head-nav')
+<nav class="breadcrumb sl-breadcrumb">
+        <a class="breadcrumb-item" href="{{url('admin/')}}">Dashboard</a>
+        <span class="breadcrumb-item active">Product</span>
+      </nav>
+@endsection
 @section('MainContent')
 <div class="sl-pagebody">
         <div class="sl-page-title">
@@ -83,6 +89,23 @@ Product
                 <input class="form-control" placeholder="Price" name="price" type="text">
                 <label>Quantity</label>
                 <input class="form-control" placeholder="Quantity" name="quantity" type="text">
+                <label>Category</label>
+                <select class="form-control" name="category_id">
+                  <option>Please select category</option>
+                  @foreach(App\Model\Category::orderBy('name','asc')->where('parent_id',NULL)->get() as $parent_cat)
+                  <option value="{{$parent_cat->id}}">{{$parent_cat->name}}</option>
+                  @foreach(App\Model\Category::orderBy('name','asc')->where('parent_id',$parent_cat->id)->get() as $sub_cat)
+                  <option value="{{$sub_cat->id}}">--->{{$sub_cat->name}}</option>
+                  @endforeach
+                  @endforeach
+                </select>
+                <label>Brand</label>
+                <select class="form-control" name="brand_id">
+                <option>Please select brand</option>
+                @foreach(App\Model\Brand::orderBy('name','asc')->get() as $brand)
+                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                @endforeach
+              </select>
                 <div class="d-md-flex pd-y-20 pd-md-y-0">
                   <label class="custom-file">
                 <input type="file" class="custom-file-input" name="image[]">

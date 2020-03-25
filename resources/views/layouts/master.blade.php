@@ -318,11 +318,6 @@
     <!-- start-smoth-scrolling -->
 
     <!-- main.js --> 
-    <script src="{{asset('frontEnd/js/main.js')}}"></script>
-    
-    
-    
-    
-    
+    <script src="{{asset('frontEnd/js/main.js')}}"></script>  
 </body>
 </html>
