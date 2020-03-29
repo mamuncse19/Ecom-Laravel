@@ -23,6 +23,8 @@ class ProductController extends Controller
         'description' => 'required',
         'price' => 'required|numeric',
         'quantity' => 'required|numeric',
+        'category_id' => 'required',
+        'brand_id' => 'required'
     ]);
 
    		$product = new Product();
@@ -32,9 +34,8 @@ class ProductController extends Controller
    		$product->quantity = $request->quantity;
    		$product->admin_id = 1;
    		$product->slug = Str::slug($request->title);
-   		$product->admin_id = 1;
-   		$product->category_id = 1;
-   		$product->brand_id = 1;
+   		$product->category_id = $request->category_id;
+   		$product->brand_id = $request->brand_id;
    		$product->save();
 
    		// single image insert
@@ -90,6 +91,8 @@ class ProductController extends Controller
         'description' => 'required',
         'price' => 'required|numeric',
         'quantity' => 'required|numeric',
+        'category_id' => 'required',
+        'brand_id' => 'required'
     ]);
 
       $product = Product::findOrFail($id);
@@ -97,6 +100,8 @@ class ProductController extends Controller
       $product->description = $request->description;
       $product->price = $request->price;
       $product->quantity = $request->quantity;
+      $product->category_id = $request->category_id;
+      $product->brand_id = $request->brand_id;
       $product->save();
       $sms = array(
                    'message' => 'Product Updated successfully.',

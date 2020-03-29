@@ -38,6 +38,7 @@
     
     <!-- main css -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontEnd/css/main.css')}}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{asset('frontEnd/css/style.css')}}" media="all" />
     
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontEnd/css/responsive.css')}}" media="all" />
@@ -52,7 +53,9 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3">
                     <div class="logo"><!-- start of logo -->
+                        <a href="{{url('/')}}">
                         <img src="{{asset('frontEnd/images/a2.png')}}" alt="logo"/>
+                    </a>
                     </div><!-- End of logo -->
                 </div>
                 <div class="col-md-9 col-sm-9 text-right">
@@ -82,36 +85,8 @@
         </div>
     </div><!-- End of header_top_area -->
     
-    <div class="main_menu_area"><!-- start of main_menu_area -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="responsive_menu_wrap"></div>
-                    <div class="main_menu"><!-- start of main_menu -->
-                        <ul id="navwrap">
-                            <li><a href="{{URL::to('/')}}">Home</a></li>
-                            @foreach(App\Model\Category::where('parent_id',NULL)->orderBy('name','asc')->get() as $parent_cat)
-                            <li><a href="#main-{{$parent_cat->id}}" data-toggle="collapse">{{$parent_cat->name}}</a>
-                                <div class="Mega_menu collapse" id="main-{{$parent_cat->id}}">
-                                     
-                                        
-                                    @foreach(App\Model\Category::where('parent_id',$parent_cat->id)->orderBy('name','asc')->get() as $sub_cat)
-                                   <ul>
-                                        <li><a href="#"><i class="icofont icofont-rounded-right">{{$sub_cat->name}}</i></a></li>
-                                        
-                                   </ul>
-                               @endforeach
-
-                                     
-                                </div><!-- End of Mega_menu -->
-                            </li>
-                           @endforeach
-                        </ul>
-                    </div><!-- End of main_menu -->
-                </div>
-            </div>
-        </div>
-    </div><!-- End of main_menu_area -->
+    @yield('navbar')
+    <!-- End of main_menu_area -->
     
     <!-- start of homepage_slider_area -->
     @yield('slider')

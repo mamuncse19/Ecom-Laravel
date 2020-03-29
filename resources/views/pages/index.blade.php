@@ -4,6 +4,41 @@
 Welcome
 @endsection
 
+@section('navbar')
+<div class="main_menu_area"><!-- start of main_menu_area -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="responsive_menu_wrap"></div>
+                    <div class="main_menu"><!-- start of main_menu -->
+                        <ul id="navwrap">
+                            <li><a href="{{URL::to('/')}}">Home</a></li>
+                            @foreach(App\Model\Category::where('parent_id',NULL)->orderBy('name','asc')->get() as $parent_cat)
+                            <li><a href="#main-{{$parent_cat->id}}" data-toggle="collapse">{{$parent_cat->name}}</a>
+                                <div class="Mega_menu collapse" id="main-{{$parent_cat->id}}">
+                                     
+                                        
+                                    @foreach(App\Model\Category::where('parent_id',$parent_cat->id)->orderBy('name','asc')->get() as $sub_cat)
+                                   <ul>
+                                        <li><a href="#"><i class="icofont icofont-rounded-right">{{$sub_cat->name}}</i></a></li>
+                                        
+                                   </ul>
+                               @endforeach
+
+                                     
+                                </div><!-- End of Mega_menu -->
+                            </li>
+                           @endforeach
+
+                           <li><a href="{{ route('allProduct.show') }}">Shop</a></li>
+                        </ul>
+                    </div><!-- End of main_menu -->
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('slider')
 <div class="homepage_slider_area">
         <div class="homepage_slides owl-carousel">
@@ -138,7 +173,7 @@ Welcome
 
                 </div>
             </div>
-           <div style="margin-top: 20px;">{{$products->links()}}</div>
+          
         </div>
 
     </div>

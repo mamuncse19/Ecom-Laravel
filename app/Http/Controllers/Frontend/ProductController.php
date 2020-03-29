@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
    public function index()
    {
-   		$products = Product::orderBy('id','desc')->paginate(12);
+   		$products = Product::orderBy('id','desc')->limit(8)->get();
    		return view('pages.index')->with('products',$products);
    }
 
@@ -33,5 +33,11 @@ class ProductController extends Controller
          ->orderBy('id','desc')
    		->paginate(9);
    		return view('frontend.product.searchProduct',compact('products','search'));
+   }
+
+   public function allProduct()
+   {
+      $products = Product::orderBy('id','desc')->paginate(9);
+      return view('frontend.product.allProduct',compact('products'));
    }	
 }

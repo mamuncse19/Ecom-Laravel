@@ -31,6 +31,22 @@ Product
                 <input class="form-control" value="{{$product->price}}" name="price" type="text">
                 <label>Quantity</label>
                 <input class="form-control" value="{{$product->quantity}}" name="quantity" type="text">
+                <label>Category</label>
+                <select class="form-control" name="category_id">
+                  
+                  @foreach(App\Model\Category::orderBy('name','asc')->where('parent_id',NULL)->get() as $parent_cat)
+                  <option value="{{$parent_cat->id}}" @if($parent_cat->id==$product->category_id) {{'selected'}} @endif>{{$parent_cat->name}}</option>
+                  @foreach(App\Model\Category::orderBy('name','asc')->where('parent_id',$parent_cat->id)->get() as $sub_cat)
+                  <option value="{{$sub_cat->id}}" @if($sub_cat->id==$product->category_id) {{'selected'}} @endif>--->{{$sub_cat->name}}</option>
+                  @endforeach
+                  @endforeach
+                </select>
+                <label>Brand</label>
+                <select class="form-control" name="brand_id">
+                @foreach(App\Model\Brand::orderBy('name','asc')->get() as $brand)
+                <option value="{{$brand->id}}" @if($brand->id==$product->brand_id) {{'selected'}} @endif>{{$brand->name}}</option>
+                @endforeach
+              </select>
                 {{-- <div class="d-md-flex pd-y-20 pd-md-y-0">
                   <label class="custom-file">
                 <input type="file" class="custom-file-input" name="image[]">

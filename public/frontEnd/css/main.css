@@ -540,6 +540,7 @@ label{
 .feature_item {
 	border: 1px solid #535353;
 	margin-top: 30px;
+	
 }
 
 .item_grids{
@@ -652,7 +653,7 @@ label{
 
 .gerlly_item.gerlly {
 	position: relative;
-	width: 246px;
+	width: 245px;
 	height: 250px;
 	cursor: pointer;
 }
