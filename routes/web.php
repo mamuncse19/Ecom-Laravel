@@ -30,8 +30,32 @@ Route::prefix('admin')->group(function(){
 	Route::get('/brand/edit/{id}','Admin\BrandController@edit')->name('brand.edit');
 	Route::post('/brand/update/{id}','Admin\BrandController@update')->name('brand.update');
 	Route::get('/brand/delete/{id}','Admin\BrandController@delete')->name('brand.delete');
+
+	// Division Routes
+	Route::get('/divisions','Admin\DivisionController@index')->name('divisions');
+	Route::post('/division/store','Admin\DivisionController@store')->name('division.store');
+	Route::get('/division/edit/{id}','Admin\DivisionController@edit')->name('division.edit');
+	Route::post('/division/update/{id}','Admin\DivisionController@update')->name('division.update');
+	Route::get('/division/delete/{id}','Admin\DivisionController@destroy')->name('division.delete');
+
+	// District Routes
+	Route::get('/districts','Admin\DistrictController@index')->name('districts');
+	Route::post('/district/store','Admin\DistrictController@store')->name('district.store');
+	Route::get('/district/edit/{id}','Admin\DistrictController@edit')->name('district.edit');
+	Route::post('/district/update/{id}','Admin\DistrictController@update')->name('district.update');
+	Route::get('/district/delete/{id}','Admin\DistrictController@destroy')->name('district.delete');
 });
 
+
+/*
+================================
+		Users Routes
+================================
+*/
+// User Verification Route
+Route::prefix('user')->group(function(){
+	Route::get('/userVerify/{token}','Users\userVerifyController@verify')->name('user.verification');
+});
 
 
 /*
@@ -49,3 +73,7 @@ Route::prefix('products')->group(function(){
 	Route::get('/category','Frontend\CategoryController@index')->name('category.index');
 	Route::get('/category/{id}','Frontend\CategoryController@show')->name('category.show');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

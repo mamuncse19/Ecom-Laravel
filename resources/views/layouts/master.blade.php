@@ -42,43 +42,92 @@
     
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontEnd/css/responsive.css')}}" media="all" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
+
+ 
 </head>
 <body>
     
-    
+     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                          
+                        @endguest
+                    </ul>
+                </div>
+            
+        </nav>
     
     
     <div class="header_top_area" id="home"><!-- start of header_top_area -->
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <div class="logo"><!-- start of logo -->
+                <div class="col-md-3 col-sm-3" style=" padding-top: 0px; margin-top: 0px;">
+                    <div class="logo" style=" padding-top: 0px; margin-top: 0px;"><!-- start of logo -->
                         <a href="{{url('/')}}">
                         <img src="{{asset('frontEnd/images/a2.png')}}" alt="logo"/>
                     </a>
                     </div><!-- End of logo -->
                 </div>
-                <div class="col-md-9 col-sm-9 text-right">
-                    <div class="header_top_search"><!-- start of header_top_search -->
-                        <form action="{{route('search')}}" method="get">
+                <div class="col-md-9 col-sm-9 text-right" style=" padding-top: 0px; margin-top: 0px;">
+                    <div class="header_top_search" style=" padding-top: 0px; margin-top: 0px;"><!-- start of header_top_search -->
+                        <form action="{{route('search')}}" method="get" style=" padding-top: 0px; margin-top: 0px;">
                             @csrf
-                            <input type="search" name="search" placeholder="Search" required="">
-                            <button type="submit" class="search_btn search_btn_top" aria-label="Left Align">
+                            <input type="search" name="search" placeholder="Search" required="" style=" margin-top: 20px;">
+                            <button type="submit" class="search_btn search_btn_top" aria-label="Left Align" style=" margin-top: 20px;" >
                                 <i class="icofont icofont-search"></i>
                             </button>
                         </form>
-                    </div><!-- End of header_top_search -->
+                   
                     
-                    <div class="header_right_area"><!-- start of header_right_area -->
-                        <div class="header_cart"><!-- start of header_cart -->
+                    <div class="header_right_area" style=" padding-top: 0px; margin-top: 0px;"><!-- start of header_right_area -->
+                        <div class="header_cart" style=" padding-top: 0px; margin-top: 20px;"><!-- start of header_cart -->
                             <a href="#"><i class="icofont icofont-shopping-cart"></i></a>
                         </div><!-- End of header_cart -->
+
                         
-                        <div class="myaccount"><!-- start of myaccount -->
-                            <a href="#">my account</a>
-                        </div><!-- End of myaccount -->
-                        
-                    </div><!-- End of header_right_area -->
                     
                 </div>
             </div>
@@ -293,6 +342,27 @@
     <!-- start-smoth-scrolling -->
 
     <!-- main.js --> 
-    <script src="{{asset('frontEnd/js/main.js')}}"></script>  
+    <script src="{{asset('frontEnd/js/main.js')}}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+    <script>
+     @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+        case 'info':
+        toastr.info("{{ Session::get('message') }}");
+        break;
+         case 'success':
+        toastr.success("{{ Session::get('message') }}");
+        break;
+        case 'warning':
+        toastr.warning("{{ Session::get('message') }}");
+        break;
+        case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;
+    }
+    @endif
+    </script>  
 </body>
 </html>
