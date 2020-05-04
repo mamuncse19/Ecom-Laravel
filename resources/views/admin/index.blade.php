@@ -18,16 +18,25 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{asset('admin_css_js/css/starlight.css')}}">
+    <style>
+      html{
+        height: 100%;
+      }
+      body{
+        position: relative;
+        min-height: 100%;
+      }
+    </style>
   </head>
 
   <body>
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href="{{-- {{route('admin.dashboard')}} --}}">Admin Panel</a></div>
+    <div class="sl-logo"><a href="{{url('admin')}}">Admin Panel</a></div>
     <div class="sl-sideleft">
     
       <div class="sl-sideleft-menu">
-        <a href="{{-- {{route('admin.dashboard')}} --}}" class="sl-menu-link active">
+        <a href="{{url('admin')}}" class="sl-menu-link active">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -268,15 +277,15 @@
 
       </div><!-- sl-pagebody -->
   </div>
-<div class="sl-mainpanel">
+
       <!--Footer Area-->
-      <footer class="sl-footer">
+      <footer class="sl-footer" style="background-color: #2B333E; padding-bottom: 20px; padding-top: 20px; position: absolute; bottom: 0; left: 0; right: 0;">
         <div class="footer-left">
-          <div class="mg-b-2">&copy; {{date('Y')}}. Mamun Hossain. All Rights Reserved.</div>
+          <div class="mg-b-2" style="text-align: center;">&copy; {{date('Y')}}. Mamun Hossain. All Rights Reserved.</div>
         </div>
         
       </footer>
-    </div><!-- sl-mainpanel -->
+    
     <!-- ########## END: MAIN PANEL ########## -->
 
 

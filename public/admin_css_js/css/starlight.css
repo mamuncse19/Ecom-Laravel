@@ -101,6 +101,7 @@ html {
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
 }
 
 *,
@@ -124,6 +125,8 @@ body {
   line-height: 1.5;
   color: #868ba1;
   background-color: #D8DCE3;
+  position: relative;
+  min-height: 100%;
 }
 
 [tabindex="-1"]:focus {

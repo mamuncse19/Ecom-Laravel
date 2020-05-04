@@ -154,9 +154,7 @@ Welcome
                                             <div class="view_product_caption">
                                                 <h4><a href="">{{$product->title}}</a></h4>
                                                 <p>@if($product->offer_price!=NULL)<del>&#2547;45.99</del>@endif &#2547; {{$product->price}}</p>
-                                                <a href="#">
-                                                    <h3>Add to cart</h3>
-                                                </a>
+                                                @include('pages.cart-button')
                                             </div>
                                     </div>
                                 </div>

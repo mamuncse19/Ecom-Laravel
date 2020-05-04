@@ -57,12 +57,13 @@ All Product
 				<a href="{{route('singleProduct.show',$product->slug)}}">
 					<h3>{{$product->title}}</h3>
 				</a>
-				<h4>$35.00
+				<h4>
+					&#2547; {{$product->price}}
 					@if($product->offer_price!=NULL)
-					<del>$55.00</del>
+					<del>&#2547; 55.00</del>
 					@endif
 				</h4>
-				<a href="#" class="product_add_btn product_btn">Add to Cart</a>
+				@include('pages.cart-button')
 			</div>
 			
 	</div>

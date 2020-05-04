@@ -77,11 +77,13 @@
 
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
-                                </a>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" style="width:40px; border-radius: 50%;">{{ Auth::user()->first_name }} {{ Auth::user()->last_name}}<span class="caret"></span>
+                        </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('user.dashboard') }}">
+                                        {{ __('My Dashboard') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -124,7 +126,7 @@
                     
                     <div class="header_right_area" style=" padding-top: 0px; margin-top: 0px;"><!-- start of header_right_area -->
                         <div class="header_cart" style=" padding-top: 0px; margin-top: 20px;"><!-- start of header_cart -->
-                            <a href="#"><i class="icofont icofont-shopping-cart"></i></a>
+                            <a href="{{route('carts')}}"><i class="icofont icofont-shopping-cart"></i><span><button class="btn btn-danger" style="position: absolute;">{{App\Model\Cart::totalItem()}}</button></span></a>
                         </div><!-- End of header_cart -->
 
                         

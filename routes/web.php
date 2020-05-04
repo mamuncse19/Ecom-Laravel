@@ -5,12 +5,11 @@
 		Admin Routes
 ================================
 */
-// Dashboard Route
+
 Route::prefix('admin')->group(function(){
-	Route::get('/','Admin\AdminController@index');	
-});
-// Product Routes
-Route::prefix('admin')->group(function(){
+	// Dashboard Route
+	Route::get('/','Admin\AdminController@index');
+	// Product Routes
 	Route::get('/products','Admin\ProductController@index')->name('products');
 	Route::post('/product/store','Admin\ProductController@store')->name('Product.store');
 	Route::get('/delete/{id}','Admin\ProductController@delete');
@@ -55,6 +54,9 @@ Route::prefix('admin')->group(function(){
 // User Verification Route
 Route::prefix('user')->group(function(){
 	Route::get('/userVerify/{token}','Users\userVerifyController@verify')->name('user.verification');
+	Route::get('/dashboard','Users\UserController@dashboard')->name('user.dashboard');
+	Route::get('/profile','Users\UserController@profile')->name('user.profile');
+	Route::post('/profile/update','Users\UserController@profileUpdate')->name('user.profile.update');
 });
 
 
@@ -72,6 +74,12 @@ Route::prefix('products')->group(function(){
 	//Category routes for sidebar
 	Route::get('/category','Frontend\CategoryController@index')->name('category.index');
 	Route::get('/category/{id}','Frontend\CategoryController@show')->name('category.show');
+});
+
+// Cart Routes
+Route::prefix('cart')->group(function(){
+	Route::get('/','Frontend\CartController@index')->name('carts');
+	Route::post('/store','Frontend\CartController@store')->name('cart.store');
 });
 
 Auth::routes();

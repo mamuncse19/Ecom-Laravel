@@ -3008,6 +3008,7 @@ ul.product_social_area li:hover:nth-child(4) a{
 	border-top: 1px solid #f44336;
 	background: none;
 	color: #f44336;
+	cursor: pointer;
 }
 
 .product-new-top {
@@ -3060,6 +3061,7 @@ ul.product_social_area li:hover:nth-child(4) a{
 	letter-spacing: 1px;
 	font-family: 'robotomedium';
 	transition: .5s;
+
 }
 
 
