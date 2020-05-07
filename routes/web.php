@@ -80,6 +80,15 @@ Route::prefix('products')->group(function(){
 Route::prefix('cart')->group(function(){
 	Route::get('/','Frontend\CartController@index')->name('carts');
 	Route::post('/store','Frontend\CartController@store')->name('cart.store');
+	Route::post('/update/{id}','Frontend\CartController@update')->name('cart.update');
+	Route::post('/delete/{id}','Frontend\CartController@destroy')->name('cart.delete');
+});
+
+// Checkout Routes
+Route::prefix('checkout')->group(function(){
+	Route::get('/','Frontend\CheckoutController@index')->name('checkouts');
+	Route::post('/store','Frontend\CheckoutController@store')->name('checkout.store');
+	
 });
 
 Auth::routes();

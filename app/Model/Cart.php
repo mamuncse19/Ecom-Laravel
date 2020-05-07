@@ -19,7 +19,7 @@ class Cart extends Model
 
    public function user()
    {
-   		return $this->belongsTo(User::class);
+   		return $this->belongsTo('App\User');
    }
 
    public function order()
@@ -42,5 +42,18 @@ class Cart extends Model
       }
 
       return $total;
+   }
+
+
+   public static function totalCarts()
+   {
+      if(Auth::check())
+      {
+         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->get();
+      }else{
+         $carts = Cart::where('ip_address',request()->ip())->get();
+      }
+
+      return $carts;
    }
 }

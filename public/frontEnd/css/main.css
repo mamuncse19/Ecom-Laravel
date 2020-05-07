@@ -2279,7 +2279,7 @@ input[type="radio"]:checked + label::before {
 	color: #1c1c1c;
 	font-size: 30px;
 	font-weight: 300;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	letter-spacing: 2px;
 	font-family: 'robotoregular';
 	margin-left: 25px;
@@ -2299,7 +2299,7 @@ input[type="radio"]:checked + label::before {
 .timetable_sub th {
 	background: #f44336;
 	color: #fff;
-	font-size: 20px;
+	font-size: 15px;
 	font-weight: 300;
 	text-align: center;
 	letter-spacing: 1px;
@@ -2346,6 +2346,14 @@ input[type="radio"]:checked + label::before {
 	vertical-align: bottom;
 }
 
+.quantity-input{
+	height: 30px;
+	width: 60px;
+	text-align: center;
+	font-size: 15px;
+	border: 1px solid #f44336;
+	
+}
 
 
 .quantity-select .entry.value-minus::before, .quantity-select .entry.value-plus::before {
