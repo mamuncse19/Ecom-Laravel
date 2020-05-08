@@ -344,7 +344,6 @@
     <!-- start-smoth-scrolling -->
 
     <!-- main.js --> 
-    <script src="{{asset('frontEnd/js/main.js')}}"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
     <script>
@@ -365,6 +364,8 @@
         break;
     }
     @endif
-    </script>  
+    </script>
+
+    @yield('script')  
 </body>
 </html>

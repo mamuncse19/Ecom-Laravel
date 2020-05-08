@@ -38,11 +38,11 @@ class CartController extends Controller
        
        if(Auth::check()){
        $cart = Cart::where('user_id',Auth::user()->id)
-       ->where('product_id',$request->product_id)
+       ->where('product_id',$request->product_id)->where('order_id',NULL)
        ->first();
    }else{
         $cart = Cart::where('ip_address',request()->ip())
-       ->where('product_id',$request->product_id)
+       ->where('product_id',$request->product_id)->where('order_id',NULL)
        ->first();
    }
        if(!is_null($cart))

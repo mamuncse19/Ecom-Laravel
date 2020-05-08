@@ -31,9 +31,9 @@ class Cart extends Model
    {
       if(Auth::check())
       {
-         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->get();
+         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->where('order_id',NULL)->get();
       }else{
-         $carts = Cart::where('ip_address',request()->ip())->get();
+         $carts = Cart::where('ip_address',request()->ip())->where('order_id',NULL)->get();
       }
 
       $total = 0;
@@ -49,9 +49,9 @@ class Cart extends Model
    {
       if(Auth::check())
       {
-         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->get();
+         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->where('order_id',NULL)->get();
       }else{
-         $carts = Cart::where('ip_address',request()->ip())->get();
+         $carts = Cart::where('ip_address',request()->ip())->where('order_id',NULL)->get();
       }
 
       return $carts;

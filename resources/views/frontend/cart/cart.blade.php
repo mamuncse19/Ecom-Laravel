@@ -15,15 +15,16 @@
 					</div><!-- End of login_title -->
 				</div><!-- End of col-md-12 -->
 			</div><!-- End of row -->
-			
+			@php
+				$total_product = count(App\Model\Cart::totalCarts());
+				@endphp
+
+				@if($total_product>0)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="checkout-right"><!-- start of checkout-right -->	
 				<h4>Your shoping cart contains:
 					<span>
-						@php
-							$total_product = count(App\Model\Cart::totalCarts());
-						@endphp
 						{{$total_product}} Products
 					</span>
 				</h4>
@@ -104,57 +105,20 @@
 					</div>
 				</div>
 			</div><!-- End of checkout-right -->
+			@else
+			<div class="row">
+		<div class="col-md-12">
+			<div class="checkout-right">
+				<div class="alert alert-warning">
+					<strong>Your cart has empty</strong>
+				</div>
+				<a href="{{ route('allProduct.show') }}" class="btn btn-primary">Continue Shopping..</a>
+			</div>
+			</div>
+			</div>
+			@endif
 			
-				<div class="checkout_details"><!-- start of checkout_details -->
-					<div class="address_form">
-						<h4>Add Details</h4>
-						<div class="add_details_hor"></div>
-						
-						<form action="#" method="post" class="credit-card-form details_form">
-						<div class="credit-wrapper sthree">
-							<div class="information-wrapper">
-								<div class="details_row">
-									<div class="details_control control">
-										<input type="text" name="name" placeholder="Full name" class="customer_address_name" required="" />
-									</div>
-									<div class="card_number_grids">
-										<div class="card_number_grids_left">
-											<div class="control">
-												<input type="text" name="number" placeholder="mobile number" required="" />
-											</div>
-										</div>
-										<div class="card_number_grids_right">
-											<div class="control">
-												<input type="text" name="landmark" placeholder="landmark" required="" />
-											</div>
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="control">
-										<input type="text" name="city" placeholder="town/city" required="" />
-									</div>
-									
-									<div class="control">
-										<select name="option" class="option_grids">
-											<option>Select Address</option>
-											<option>Home</option>
-											<option>Office</option>
-											<option>Commercial</option>
-										</select>
-									</div>
-								</div>
-								<button class="submit_btn checkout_btn">Delivery to this Address</button>
-							</div>
-						</div>
-							
-						</form>
-						
-							<div class="checkout_payment">
-								<a href="">Make a Payment</a>
-							</div>
-					</div>
-				</div><!-- End of checkout_details -->
-
+				
 					
 				</div>
 				

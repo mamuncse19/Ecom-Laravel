@@ -47,6 +47,11 @@ label{
 }
 
 
+/*---------------------------- Check Page ----------------------*/
+
+.payment {
+	display: none;
+}
 
 /*===================================================================================
                                 ===[ Home Page Style ]===
@@ -2773,7 +2778,7 @@ ul.product_social_area li:hover:nth-child(4) a{
 
 .sidebar {
 	border-right: 1px solid #039445;
-	margin-right: 24px;
+	margin-right: 16px;
 	height: 100%;
 }
 
@@ -2960,9 +2965,9 @@ ul.product_social_area li:hover:nth-child(4) a{
 
 /*----------------------------  product_sect1 Section ----------------------*/
 
-.product_sect1 {
+/*.product_sect1 {
 	padding: 60px 0 10px 0;
-}
+}*/
 
 
 
@@ -2985,6 +2990,8 @@ ul.product_social_area li:hover:nth-child(4) a{
 .thumb-item {
 	border: 1px solid #000;
 	text-align: center;
+	margin-bottom: 5px;
+	width: 100%;
 }
 
 .thumb-item img {
