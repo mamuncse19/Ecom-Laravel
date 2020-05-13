@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -31,7 +31,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -43,6 +42,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function showLoginForm()
+    {
+        return view('auth.admin.login');
+    }
+
      public function login(Request $request)
     {
         $validatedData = $request->validate([
@@ -50,41 +54,29 @@ class LoginController extends Controller
         'password' => 'required|string'
         ]);
 
-        $user = User::where('email',$request->email)->first();
-        if(!is_null($user)){
-        if ($user->status==1) {
-            if (Auth::guard('web')->attempt(['email' => $request->email,'password' => $request->password],$request->remember)) {
-               return redirect()->intended(route('user.dashboard'));
+            if (Auth::guard('admin')->attempt(['email' => $request->email,'password' => $request->password],$request->remember)) {
+               return redirect()->intended(route('admin.dashboard'));
             }
             else
             {
                $sms = array(
-                'message' => 'Incorrect password',
+                'message' => 'Incorrect email or password',
                 'alert-type' => 'error'
                 );
                 return back()->with($sms);
             }
+       
         }
-        else
+
+
+    public function logout(Request $request)
         {
-                $user->notify(new EmailVerify($user));
-                $sms = array(
-                'message' => 'Sorry!!...Your account is not active. A confirmation mail has sent to you. Please Check your email and continue login',
-                'alert-type' => 'info'
+            $this->guard()->logout();
 
-            );
-            return back()->with($sms);
-             
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect()->route('admin.login');
         }
-    }
-    else
-    {
-
-         $sms = array(
-        'message' => 'Incorrect email',
-        'alert-type' => 'error'
-    );
-        return back()->with($sms);
-    }
-}
 }

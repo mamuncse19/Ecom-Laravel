@@ -217,7 +217,7 @@
 
 @endsection
 
-@section('script')
+@section('jQuery-script')
 
 <script>
 	

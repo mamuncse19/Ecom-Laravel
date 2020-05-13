@@ -10,6 +10,12 @@ use App\Model\ProductImage;
 
 class ProductController extends Controller
 {
+
+  public function __construct()
+  {
+    $this->middleware('auth:admin');
+  }
+
    public function index()
    {
    		$product = Product::orderBy('id','desc')->get();

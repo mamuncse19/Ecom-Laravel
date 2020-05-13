@@ -169,6 +169,9 @@
           <li class="nav-item"><a href="page-signup.html" class="nav-link">Signup Page</a></li>
           <li class="nav-item"><a href="page-notfound.html" class="nav-link">404 Page Not Found</a></li>
         </ul>
+        
+        <!-- menu-item -->
+        
       </div><!-- sl-sideleft-menu -->
 
       <br>
@@ -185,14 +188,17 @@
         <nav class="nav">
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name"><span class="hidden-md-down">{{-- {{Auth::guard('admin')->user()->name}} --}}</span></span>
-              <img src="{{-- {{asset('admin_css_js/img/image1.jpg')}} --}}" class="wd-32 rounded-circle" alt="">
+              <span class="logged-name"><span class="hidden-md-down">{{Auth::user()->name}}</span></span>
+              <img src="{{asset('admin_css_js/img/image1.jpg')}}" class="wd-32 rounded-circle" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-200">
               <ul class="list-unstyled user-profile-nav">
                 <li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
                 <li><a href=""><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
-                <li><a href="{{-- {{route('admin.logout')}} --}}"><i class="icon ion-power"></i> Sign Out</a></li>
+                 <form method="post" action="{{route('admin.logout')}}">
+                 @csrf
+                <li><i class="icon ion-power ml-2"></i><input type="submit" value="Sign Out" style="cursor:pointer; background-color: #2F3844; border: none; color: white;"></li>
+              </form>
               </ul>
             </div><!-- dropdown-menu -->
           </div><!-- dropdown -->
