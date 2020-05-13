@@ -45,6 +45,16 @@
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+            <span class="menu-item-label">Manage Order</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('orders')}}" class="nav-link">Orders</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
             <span class="menu-item-label">Manage Category</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
@@ -286,8 +296,8 @@
 
       <!--Footer Area-->
       <footer class="sl-footer" style="background-color: #2B333E; padding-bottom: 20px; padding-top: 20px; position: absolute; bottom: 0; left: 0; right: 0;">
-        <div class="footer-left">
-          <div class="mg-b-2" style="text-align: center;">&copy; {{date('Y')}}. Mamun Hossain. All Rights Reserved.</div>
+        <div class="container" style="text-align: center;">
+          <div class="mg-b-2" style="display: inline-block;">&copy; {{date('Y')}} Mamun Hossain. All Rights Reserved</div>
         </div>
         
       </footer>

@@ -53,37 +53,42 @@ class CheckoutController extends Controller
             }
         }
 
+        $order = new Order();
+
         $payment_id = Payment::where('short_name',$request->payment_method_id)->first()->id;
 
         if(Auth::check())
         {
-            $user_id = Auth::user()->id;
+            $order->name = $request->name;
+            $order->user_id = Auth::user()->id;
+            $order->ip_address = request()->ip();
+            $order->phone_no = $request->phone_no;
+            $order->shipping_address = $request->shipping_address;
+            $order->email = $request->email;
+            $order->message = $request->message;
+            $order->transaction_id = $request->transaction_id;
+            $order->payment_id = $payment_id;
+
+            $order->save();
+
+            foreach (Cart::totalCarts() as $item) {
+                $item->order_id = $order->id;
+                $item->save();
+            }
+
+             $sms = array(
+                        'message' => 'Your order has been taken by admin',
+                        'alert-type' => 'success'
+                    );
+            return redirect()->route('allProduct.show')->with($sms);
+
+        }else{
+           return redirect()->route('login');
         }
 
-        $order = new Order();
+        
 
-        $order->name = $request->name;
-        $order->user_id = $user_id;
-        $order->ip_address = request()->ip();
-        $order->phone_no = $request->phone_no;
-        $order->shipping_address = $request->shipping_address;
-        $order->email = $request->email;
-        $order->message = $request->message;
-        $order->transaction_id = $request->transaction_id;
-        $order->payment_id = $payment_id;
-
-        $order->save();
-
-        foreach (Cart::totalItem() as $item) {
-            $item->order_id = $order->id;
-            $item->save();
-        }
-
-         $sms = array(
-                    'message' => 'Your order has been taken by admin',
-                    'alert-type' => 'success'
-                );
-        return redirect()->route('allProduct.show')->with($sms);
+        
     }
 
     

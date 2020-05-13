@@ -26,6 +26,13 @@ Route::prefix('admin')->group(function(){
 	Route::get('/edit/{id}','Admin\ProductController@edit');
 	Route::post('/update/{id}','Admin\ProductController@update');
 
+	// Orders Routes
+	Route::get('/orders','Admin\OrderController@index')->name('orders');
+	Route::get('/order/view/{id}','Admin\OrderController@show')->name('admin.order.view');
+	Route::get('/order/delete/{id}','Admin\OrderController@destroy')->name('admin.order.delete');
+	Route::get('/order/pay/{id}','Admin\OrderController@paid')->name('admin.order.pay');
+	Route::get('/order/complete/{id}','Admin\OrderController@complete')->name('admin.order.complete');
+
 // Category Routes
 	Route::get('/categories','Admin\CategoryController@index')->name('categories');
 	Route::post('/category/store','Admin\CategoryController@store')->name('category.store');
