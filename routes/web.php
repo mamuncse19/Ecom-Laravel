@@ -60,6 +60,13 @@ Route::prefix('admin')->group(function(){
 	Route::get('/district/edit/{id}','Admin\DistrictController@edit')->name('district.edit');
 	Route::post('/district/update/{id}','Admin\DistrictController@update')->name('district.update');
 	Route::get('/district/delete/{id}','Admin\DistrictController@destroy')->name('district.delete');
+
+	// Slider Routes
+	Route::get('/sliders','Admin\SliderController@index')->name('sliders');
+	Route::post('/slider/store','Admin\SliderController@store')->name('slider.store');
+	Route::get('/slider/edit/{id}','Admin\SliderController@edit')->name('slider.edit');
+	Route::post('/slider/update/{id}','Admin\SliderController@update')->name('slider.update');
+	Route::get('/slider/delete/{id}','Admin\SliderController@destroy')->name('slider.delete');
 });
 
 
@@ -111,3 +118,10 @@ Route::prefix('checkout')->group(function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Api Route for get all district under a division
+
+Route::get('/division/get/district/{id}',function($id){
+	return json_encode(App\Model\District::where('division_id',$id)->get());
+});

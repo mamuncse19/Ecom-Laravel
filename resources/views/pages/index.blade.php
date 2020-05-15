@@ -42,53 +42,24 @@ Welcome
 @section('slider')
 <div class="homepage_slider_area">
         <div class="homepage_slides owl-carousel">
-            <div class="single_slide_item slide_bg_1" style="background-image: url({{asset('frontEnd/images/softbuy.jpg')}});"><!-- start of single_slide_item -->
+            @foreach(App\Model\Slider::all() as $slider)
+             <div class="single_slide_item slide_bg_1" style="background-image: url({{asset('images/slider/'.$slider->image)}});">
                 <div class="single_item_table">
                     <div class="slide_item_tablecell">
                         <div class="container">
                             <div class="row tex">
                                 <div class="slider_text_bg">
-                                    <h2>big<span>save</span></h2>
+                                    <h2><span>{{$slider->title}}</span></h2>
                                 </div>
-                                <h4>Get flat 10% Cashback</h4><br/>
-                                <a href="#" class="soft_buy_btn slide_btn">Shop now</a>
+                                <h4 style="color: red;">{{$slider->text}}</h4><br/>
+                                <a href="{{$slider->button_link}}" class="soft_buy_btn slide_btn">{{$slider->button_text}}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div><!-- End of single_slide_item -->
-            
-            <div class="single_slide_item slide_bg_1" style="background-image: url({{asset('frontEnd/images/slider2.jpg')}});"><!-- start of single_slide_item -->
-                <div class="single_item_table">
-                    <div class="slide_item_tablecell">
-                        <div class="container">
-                            <div class="row tex">
-                                <div class="slider_text_bg">
-                                    <h2>big<span>save</span></h2>
-                                </div>
-                                <h4>Get flat 10% Cashback</h4><br/>
-                                <a href="#" class="soft_buy_btn slide_btn">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End of single_slide_item -->
-            
-            <div class="single_slide_item slide_bg_1" style="background-image: url({{asset('frontEnd/images/slider3.jpg')}});"><!-- start of single_slide_item -->
-                <div class="single_item_table">
-                    <div class="slide_item_tablecell">
-                        <div class="container">
-                            <div class="row tex">
-                                <div class="slider_text_bg">
-                                    <h2>big<span>save</span></h2>
-                                </div>
-                                <h4>Get flat 10% Cashback</h4><br/>
-                                <a href="#" class="soft_buy_btn slide_btn">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- End of single_slide_item -->
+
+            @endforeach
         </div>
     </div>
 @endsection

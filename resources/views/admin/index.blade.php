@@ -102,6 +102,16 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('districts')}}" class="nav-link">Add District</a></li>
+        </ul> 
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
+            <span class="menu-item-label">Manage Slider</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{route('sliders')}}" class="nav-link">Add Slider</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -198,7 +208,7 @@
         <nav class="nav">
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name"><span class="hidden-md-down">{{Auth::user()->name}}</span></span>
+              <span class="logged-name"><span class="hidden-md-down">{{Auth::guard('admin')->user()->name}}</span></span>
               <img src="{{asset('admin_css_js/img/image1.jpg')}}" class="wd-32 rounded-circle" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-200">

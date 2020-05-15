@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Payment;
 use App\Model\Order;
 use App\Model\Cart;
+use App\Model\District;
 use Auth;
 
 class CheckoutController extends Controller
@@ -21,8 +22,6 @@ class CheckoutController extends Controller
         $payment_methods = Payment::orderBy('priority','asc')->get();
         return view('frontend.payment.checkOut',compact('payment_methods'));
     }
-
-    
 
     /**
      * Store a newly created resource in storage.

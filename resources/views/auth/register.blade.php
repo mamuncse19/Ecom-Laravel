@@ -70,7 +70,7 @@
                             <label for="division" class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control @error('division_id') is-invalid @enderror" name="division_id" value="{{ old('division_id') }}" required autofocus>
+                                <select class="form-control @error('division_id') is-invalid @enderror" name="division_id" value="{{ old('division_id') }}" id="division_id" required autofocus>
                                     <option>Please Select Division</option>
                                     @foreach($divisions as $key => $division)
                                     <option value="{{$division->id}}">{{$division->name}}</option>
@@ -90,11 +90,9 @@
                             <label for="district" class="col-md-4 col-form-label text-md-right">{{ __('District') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control @error('district_id') is-invalid @enderror" name="district_id" value="{{ old('district_id') }}" required autofocus>
+                                <select class="form-control @error('district_id') is-invalid @enderror" name="district_id" value="{{ old('district_id') }}" id="district_id" required autofocus>
                                     <option>Please Select District</option>
-                                    @foreach($districts as $key => $district)
-                                    <option value="{{$district->id}}">{{$district->name}}</option>
-                                    @endforeach
+                                    
                                 </select>
 
                                 @error('district_id')
@@ -155,3 +153,35 @@
     </div>
 </div>
 @endsection
+
+@section('jQuery-script')
+
+<script>
+ $(document).ready(function(){
+
+    function get_district(div_id){
+        var option = "";
+        $.ajax({
+            url:"http://localhost/newEcommerce/public/division/get/district/"+div_id,
+            method:"get",
+            dataType:"html",
+            success:function(result){
+                result = JSON.parse(result);
+                result.forEach(function(data){
+                    option += "<option value='"+data.id+"'>"+data.name+"</option>"
+                });
+               $("#district_id").html(option);
+            }
+        });
+    }
+
+    $("#division_id").on("change",function(){
+        var div_id = $("#division_id option:selected").val();
+        get_district(div_id);
+    });
+    
+ });   
+</script>
+
+@endsection
+
