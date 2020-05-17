@@ -7,18 +7,23 @@
 */
 
 Route::prefix('admin')->group(function(){
+
 	// Login Route
 	Route::get('/login','Auth\Admin\LoginController@showLoginForm')->name('admin.login');
 	Route::post('/login/submit','Auth\Admin\LoginController@login')->name('admin.login.submit');
 	Route::post('/logout','Auth\Admin\LoginController@logout')->name('admin.logout');
+
 	// Send email
 	Route::get('/password/reset','Auth\Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
 	Route::post('/password/email','Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+
 	// Reset password
 	Route::get('/password/reset/{token}','Auth\Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
 	Route::post('/password/reset/update','Auth\Admin\ResetPasswordController@reset')->name('admin.password.update');
+
 	// Dashboard Route
 	Route::get('/','Admin\AdminController@index')->name('admin.dashboard');
+
 	// Product Routes
 	Route::get('/products','Admin\ProductController@index')->name('products');
 	Route::post('/product/store','Admin\ProductController@store')->name('Product.store');
@@ -32,6 +37,8 @@ Route::prefix('admin')->group(function(){
 	Route::get('/order/delete/{id}','Admin\OrderController@destroy')->name('admin.order.delete');
 	Route::get('/order/pay/{id}','Admin\OrderController@paid')->name('admin.order.pay');
 	Route::get('/order/complete/{id}','Admin\OrderController@complete')->name('admin.order.complete');
+	Route::post('/order/update/{id}','Admin\OrderController@discountShippingCostUpdate')->name('admin.order.dis-ship-cost-update');
+	Route::get('/order/invoice/{id}','Admin\OrderController@invoiceGenerate')->name('admin.order.invoice-generate');
 
 // Category Routes
 	Route::get('/categories','Admin\CategoryController@index')->name('categories');

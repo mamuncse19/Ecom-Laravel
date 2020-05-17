@@ -8,6 +8,7 @@
     <meta name="keywords" content="best html5 template, bootstrap, template ,best premium template, best Soft-Buy template, Soft-Buy template">
     <meta name="author" content="shiplu">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>@yield('title')</title>
     
@@ -126,7 +127,7 @@
                     
                     <div class="header_right_area" style=" padding-top: 0px; margin-top: 0px;"><!-- start of header_right_area -->
                         <div class="header_cart" style=" padding-top: 0px; margin-top: 20px;"><!-- start of header_cart -->
-                            <a href="{{route('carts')}}"><i class="icofont icofont-shopping-cart"></i><span><button class="btn btn-danger" style="position: absolute;">{{App\Model\Cart::totalItem()}}</button></span></a>
+                            <a href="{{route('carts')}}"><i class="icofont icofont-shopping-cart"></i><span><button class="btn btn-danger" id="totalCartItem" style="position: absolute;">{{App\Model\Cart::totalItem()}}</button></span></a>
                         </div><!-- End of header_cart -->
 
                         

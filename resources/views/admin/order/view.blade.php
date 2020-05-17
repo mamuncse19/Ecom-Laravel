@@ -117,8 +117,21 @@ Orders
 							</tr>
 						</tbody>
 					</table>
+					<div class="container">
+						<div class="row">
+							<form method="post" action="{{route('admin.order.dis-ship-cost-update',$order->id)}}">
+								@csrf
+								<label>Shipping Cost</label>
+                				<input class="" name="shipping_cost" type="number" value="{{$order->shipping_cost}}">
+                				<label>Discount</label>
+                				<input class="" name="custom_discount" type="number" value="{{$order->custom_discount}}">
+                				<button type="submit" class="btn btn-primary">Update</button>
+							</form>
+						</div>
+					</div>
 					
 				<div style="float: right;">
+					<a href="{{route('admin.order.invoice-generate',$order->id)}}" class="btn btn-teal active" target="_blank" >Generate Invoice</a>
 				@if($order->is_paid)
 				<a href="{{route('admin.order.pay',$order->id)}}" class="btn btn-danger">Cancel Payment</a>
 				@else
@@ -130,6 +143,7 @@ Orders
 				@else
 				<a href="{{route('admin.order.complete',$order->id)}}" class="btn btn-success">Complete Order</a>
 				@endif
+
 				</div>
 			</div>
 			@else

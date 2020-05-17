@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Order;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -102,6 +103,40 @@ class OrderController extends Controller
 
         return back()->with($sms);
         }
+
+        
+    }
+
+
+
+    public function discountShippingCostUpdate(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+
+        $order->shipping_cost = $request->shipping_cost;
+        $order->custom_discount = $request->custom_discount;
+        $order->save();
+
+        $sms = array(
+            'message' => 'Order Updated.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($sms);
+        
+
+        
+    }
+
+
+    public function invoiceGenerate($id)
+    {
+        $order = Order::findOrFail($id);
+
+        $pdf = PDF::loadView('admin.order.invoice',compact('order'));
+        return $pdf->stream('invoice.pdf');
+        //return $pdf->download('invoice.pdf');
+        
 
         
     }

@@ -68,7 +68,7 @@ class CartController extends Controller
         'alert-type' => 'success'
        );
 
-       return back()->with($sms);
+       return json_encode(['totalItem' => Cart::totalItem()]);
     }
 
 

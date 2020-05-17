@@ -63,7 +63,6 @@ Welcome
         </div>
     </div>
 @endsection
-
 @section('content')
 
 <div class="feature_products_area">
