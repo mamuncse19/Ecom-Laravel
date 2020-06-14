@@ -31,10 +31,10 @@ Orders
                 <tr>
                   <th class="wd-5p text-center">S.L</th>
                   <th class="wd-10p text-center">Order ID</th>
-                  <th class="wd-20p text-center">Order Name</th>
+                  <th class="wd-15p text-center">Order Name</th>
                   <th class="wd-20p text-center">Order Phone</th>
-                  <th class="wd-30p text-center">Order Status</th>
-                  <th class="wd-15p text-center">Action</th>
+                  <th class="wd-40p text-center">Order Status</th>
+                  <th class="wd-10p text-center">Action</th>
                   
                 </tr>
               </thead>
@@ -54,13 +54,18 @@ Orders
                   	@if($order->is_completed)
                   	<button class="btn btn-success">Completed</button>
                   	@else
-                  	<button class="btn btn-info">Not Completed</button>
+                  	<button class="btn btn-info">Not Comp.</button>
                   	@endif
                   	@if($order->is_paid)
                   	<button class="btn btn-success">Paid</button>
                   	@else
                   	<button class="btn btn-danger">Unpaid</button>
                   	@endif
+                    @if($order->is_confirmed)
+                    <button class="btn btn-success">Confirmed</button>
+                    @else
+                    <button class="btn btn-danger">Not Conf.</button>
+                    @endif
                   </td>
                   <td class="text-center">
                   	<a href="{{route('admin.order.view',$order->id)}}" class="btn btn-sm btn-teal">View</a>

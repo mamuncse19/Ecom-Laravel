@@ -5,6 +5,7 @@ Dashboard
 @endsection
 
 @section('MainContent')
+
 <div class="row row-sm">
           <div class="col-sm-6 col-xl-3">
             <div class="card pd-20 bg-primary">
@@ -14,7 +15,10 @@ Dashboard
               </div><!-- card-header -->
               <div class="d-flex align-items-center justify-content-between">
                 <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-                <h3 class="mg-b-0 tx-white tx-lato tx-bold">$850</h3>
+                @php
+                  $count = count($toDaysOrder);
+                @endphp
+                <h3 class="mg-b-0 tx-white tx-lato tx-bold">{{$count}}</h3>
               </div><!-- card-body -->
               <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
                 <div>

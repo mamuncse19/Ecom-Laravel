@@ -85,7 +85,7 @@ Orders
 											
 											<div class="update-quantity"> 
 												
-												<button type="submit" class="btn btn-primary">
+												<button type="submit" class="btn btn-primary" style="cursor: pointer;">
                                     {{ __('Update') }}
                                 </button></div>
                            
@@ -94,12 +94,27 @@ Orders
 
 									
 								</td>
-								<td class="text-center">&#2547; {{$cart->product->price}}</td>
 								<td class="text-center">
+									@if($cart->product->offer_price!=NULL)
+									&#2547; {{$cart->product->price-$cart->product->price*$cart->product->offer_price/100}}
+								@else
+								&#2547; {{$cart->product->price}}
+							@endif
+						</td>
+								<td class="text-center">
+									@if($cart->product->offer_price!=NULL)
+									@php
+										$price = $cart->product->price-$cart->product->price*$cart->product->offer_price/100;
+										$total_price += $price*$cart->product_quantity;
+									@endphp
+									&#2547; {{$price*$cart->product_quantity}}
+									@else
 									@php
 										$total_price += $cart->product->price*$cart->product_quantity;
 									@endphp
-									&#2547; {{$cart->product->price*$cart->product_quantity}}</td>
+									&#2547; {{ $cart->product->price*$cart->product_quantity}}
+									@endif
+								</td>
 								<td class="text-center">
 									<div class="check">
 										<form method="post" action="{{route('cart.delete',$cart->id)}}">
@@ -125,12 +140,12 @@ Orders
                 				<input class="" name="shipping_cost" type="number" value="{{$order->shipping_cost}}">
                 				<label>Discount</label>
                 				<input class="" name="custom_discount" type="number" value="{{$order->custom_discount}}">
-                				<button type="submit" class="btn btn-primary">Update</button>
+                				<button type="submit" class="btn btn-primary" style="cursor: pointer;">Update</button>
 							</form>
 						</div>
 					</div>
 					
-				<div style="float: right;">
+				<div style="float: right;" class="mt-2">
 					<a href="{{route('admin.order.invoice-generate',$order->id)}}" class="btn btn-teal active" target="_blank" >Generate Invoice</a>
 				@if($order->is_paid)
 				<a href="{{route('admin.order.pay',$order->id)}}" class="btn btn-danger">Cancel Payment</a>
@@ -139,9 +154,14 @@ Orders
 				@endif
 
 				@if($order->is_completed)
-				<a href="{{route('admin.order.complete',$order->id)}}" class="btn btn-danger">Cancel Order</a>
+				<a href="{{route('admin.order.complete',$order->id)}}" class="btn btn-danger" style=" pointer-events: none;cursor: default;">Complete Order</a>
 				@else
 				<a href="{{route('admin.order.complete',$order->id)}}" class="btn btn-success">Complete Order</a>
+				@endif
+				@if($order->is_confirmed)
+				<a href="{{route('admin.order.confirm',$order->id)}}" class="btn btn-danger">Cancel Order</a>
+				@else
+				<a href="{{route('admin.order.confirm',$order->id)}}" class="btn btn-success">Confirm Order</a>
 				@endif
 
 				</div>

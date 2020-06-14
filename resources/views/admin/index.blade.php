@@ -113,7 +113,12 @@
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('sliders')}}" class="nav-link">Add Slider</a></li>
         </ul>
-        
+        <a href="{{url('/')}}" target="_blank" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="fa fa-link"></i>
+            <span class="menu-item-label">Main Site</span>
+          </div><!-- menu-item -->
+        </a>
         
         <!-- menu-item -->
         

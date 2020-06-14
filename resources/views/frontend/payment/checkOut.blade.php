@@ -34,7 +34,12 @@
 						<div class="col-md-7 border-right">
 						<ol class="ml-3">
 						@foreach(App\Model\Cart::totalCarts() as $cart )
-						<li>{{$cart->product->title}} - {{$cart->product_quantity}} Item - &#2547; {{$cart->product->price}}</li>
+						<li>{{$cart->product->title}} - {{$cart->product_quantity}} Item - @if($cart->product->offer_price!=NULL)
+                                    &#2547; {{$cart->product->price-$cart->product->price*$cart->product->offer_price/100}}
+                                    @else
+                                    &#2547; {{$cart->product->price}}
+                                    @endif
+                                </li>
 						@endforeach
 					</ol>
 						
@@ -46,9 +51,15 @@
 						$total_price = 0;
 						@endphp
 					@foreach(App\Model\Cart::totalCarts() as $cart )
-						@php
-							$total_price += $cart->product->price*$cart->product_quantity;
-						@endphp
+						@if($cart->product->offer_price!=NULL)
+                                    @php
+                                        $total_price += $cart->product->price-$cart->product->price*$cart->product->offer_price/100;
+                                    @endphp
+                                    @else
+                                    @php
+                                        $total_price += $cart->product->price*$cart->product_quantity;
+                                    @endphp
+                                    @endif
 						@endforeach
 						<p>Total Price = &#2547; <strong>{{$total_price}}</strong></p>
 						<p>Total Price With Shipping Cost = &#2547; <strong>{{$total_price + App\Model\Setting::first()->shipping_cost}}</strong></p>

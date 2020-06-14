@@ -21,9 +21,9 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->string('slug');
             $table->integer('quantity')->default(1);
-            $table->integer('price');
+            $table->double('price');
             $table->tinyInteger('status')->default(0);
-            $table->integer('offer_price')->nullable();
+            $table->double('offer_price')->nullable();
             $table->integer('admin_id')->unsigned();
             $table->timestamps();
         });

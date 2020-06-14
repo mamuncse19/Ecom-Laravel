@@ -2,7 +2,38 @@
 @section('title')
 All Product
 @endsection
+
+@section('navbar')
+
+@include('layouts.navBar')
+
+@endsection
+
+
 @section('content')
+@php
+	$i = 1;
+@endphp
+@foreach($products as $pro_image)
+
+@if($i>0)
+<style>
+	.page_title {
+	background-image: url({{ asset('images/product/'.$pro_image->images->first()->image) }});
+	height: 400px;
+	background-size: cover;
+	background-position: center;
+	background-color: #ddd;
+}
+
+</style>
+
+@endif
+@php
+	$i--;
+@endphp
+@endforeach
+
 <div class="page_title">
 		<div class="container">
 			<div class="row">
@@ -51,16 +82,18 @@ All Product
 				</div>
 			</div>
 			@if($product->offer_price!=NULL)
-			<span class="product-new-top">Offer</span>
+			<span class="product-new-top">{{$product->offer_price}}% Off</span>
 			@endif
 			<div class="product_view_caption">
 				<a href="{{route('singleProduct.show',$product->slug)}}">
 					<h3>{{$product->title}}</h3>
 				</a>
 				<h4>
-					&#2547; {{$product->price}}
 					@if($product->offer_price!=NULL)
-					<del>&#2547; 55.00</del>
+					<del>&#2547; {{$product->price}}</del>
+					{{$product->price-$product->price*$product->offer_price/100}}
+					@else
+					&#2547; {{$product->price}}
 					@endif
 				</h4>
 				@include('pages.cart-button')
@@ -73,8 +106,9 @@ All Product
 					</div>
 				</div>
 			</div>
-			<div>
-			{{$products->links()}}</div>
+			<div style="margin-top: 15px;float: right;">
+			{{$products->links()}}
+		</div>
 		</div>
 		</div>
 	</div>

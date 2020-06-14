@@ -27,14 +27,19 @@ class Cart extends Model
    		return $this->belongsTo(Order::class);
    }
 
+
+   
    public static function totalItem()
    {
-      if(Auth::check())
-      {
-         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->where('order_id',NULL)->get();
-      }else{
-         $carts = Cart::where('ip_address',request()->ip())->where('order_id',NULL)->get();
-      }
+      // if(Auth::check())
+      // {
+      //    $carts = Cart::where('order_id',NULL)->where(function($query){$query->where('user_id',Auth::user()->id)->orWhere('ip_address',request()->ip());})->get();
+      // }else{
+      //    $carts = Cart::where('ip_address',request()->ip())->where('order_id',NULL)->get();
+      // }
+      
+      $carts = Cart::totalCarts();
+      
 
       $total = 0;
       foreach ($carts as $key => $cart) {
@@ -45,15 +50,19 @@ class Cart extends Model
    }
 
 
+
    public static function totalCarts()
    {
       if(Auth::check())
       {
-         $carts = Cart::where('user_id',Auth::user()->id)->where('ip_address',request()->ip())->where('order_id',NULL)->get();
+         $carts = Cart::where('order_id',NULL)->where(function($query){$query->where('user_id',Auth::user()->id)->orWhere('ip_address',request()->ip());})->get();
       }else{
          $carts = Cart::where('ip_address',request()->ip())->where('order_id',NULL)->get();
       }
 
       return $carts;
    }
+
+
+   
 }

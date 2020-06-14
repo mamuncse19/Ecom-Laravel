@@ -4,29 +4,6 @@
 @endsection
 @section('content')
 
-<!-- Single Product -->
-<div class="page_title">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="top_title">
-						<h2>single</h2>
-					</div>
-					<div class="page_subtitle">
-						<ul>
-							<li>
-								<a href="{{url('/')}}">home</a>
-								<span>|</span>
-							</li>
-							<li class="page_active">single</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div><!-- End of about_page_title -->
-	
-	
 	<div class="product_details_area">
 		<div class="container">
 			<div class="row">
@@ -52,14 +29,23 @@
 					<div class="top_right_area">
 						<div class="product_content_tile">
 							<h3>{{$product->title}}</h3>
-							<p>@if($product->offer_price!=NULL)<del>&#2547;45.99</del>@endif &#2547; {{$product->price}}</p>
+							<p>
+								@if($product->offer_price!=NULL)<del>&#2547; {{$product->price}}</del>
+								@endif 
+								&#2547; {{$product->price-$product->price*$product->offer_price/100}}
+								
+							</p>
 						</div>
-						
+						@if($product->quantity>0)
 						<div class="option_area">
 							Quatity :
-							<input type="number" name="" value="1" style="width: 70px;">
+							<input type="text" name="" id="rtdmqty" value="1" style="width: 70px;">
 						</div>  <span style="color: green;">Available Qty: {{$product->quantity}} </span>
-						
+						@else
+						<div class="">
+							<p style="color: red">Out of Stock</p>
+						</div>  <span style="color: green;">Available Qty: {{$product->quantity}} </span>
+						@endif
 						<div class="radio_button_area">
 							<form action="#" class="product_type">
 								Type :
@@ -75,7 +61,8 @@
 							</form>
 						</div>
 						
-						<a href="" class="add_cart_btn add_btn" >Add to cart</a>
+						@include('pages.cart-button');
+						
 							<div class="product_social">
 								<h3>Share On:</h3>
 								<ul class="product_social_area">
@@ -101,7 +88,7 @@
 						  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 							<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Description</a>
 							<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Brand</a>
-							<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Reviews</a>
+							
 						  </div>
 						</nav>
 						<div class="tab-content" id="nav-tabContent">
@@ -115,13 +102,7 @@
 									{{$product->brand->name}}
 								</div>
 							  </div>
-							  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-								<div class="tabs_text_area">
-									<h2>Lorem ipsum dolor sit amet.</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut urna a sapien pellentesque consequat at vel metus. Morbi imperdiet augue quam, a varius metus egestas at.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut urna a sapien pellentesque consequat at vel metus. Morbi imperdiet augue quam, a varius metus egestas at.</p>
-								</div>
-							  </div>
+							  
 						</div>
 					</div>
 				</div>

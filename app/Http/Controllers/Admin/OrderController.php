@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Order;
+use App\Model\Product;
 use PDF;
 
 class OrderController extends Controller
@@ -85,7 +86,7 @@ class OrderController extends Controller
             $order->save();
 
         $sms = array(
-            'message' => 'Order Cancelled.',
+            'message' => 'Order Not Completed.',
             'alert-type' => 'warning'
         );
 
@@ -102,6 +103,60 @@ class OrderController extends Controller
         );
 
         return back()->with($sms);
+        }
+
+        
+    }
+
+
+
+
+    public function confirm($id)
+    {
+        $order = Order::findOrFail($id);
+        if($order->is_confirmed)
+        {
+            $order->is_confirmed = 0;
+            $order->save();
+
+            foreach ($order->carts as $cart) {
+            $product_id = $cart->product_id;
+            $product_quantity = $cart->product_quantity;
+
+            $product = Product::findOrFail($product_id);
+            $product->quantity = $product->quantity+$product_quantity;
+            $product->save();
+        }
+
+         $sms = array(
+            'message' => 'Order Cancelled.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($sms);
+
+        }
+        else{
+
+            $order->is_confirmed = 1;
+            $order->save();
+
+            foreach ($order->carts as $cart) {
+            $product_id = $cart->product_id;
+            $product_quantity = $cart->product_quantity;
+
+            $product = Product::findOrFail($product_id);
+            $product->quantity = $product->quantity-$product_quantity;
+            $product->save();
+        }
+
+         $sms = array(
+            'message' => 'Order Confirmed.',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($sms);
+
         }
 
         
@@ -134,6 +189,8 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
         $pdf = PDF::loadView('admin.order.invoice',compact('order'));
+        // For image path found
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         return $pdf->stream('invoice.pdf');
         //return $pdf->download('invoice.pdf');
         

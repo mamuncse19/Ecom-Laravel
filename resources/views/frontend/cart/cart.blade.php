@@ -76,12 +76,27 @@
 
 									</div>
 								</td>
-								<td class="invertor">&#2547; {{$cart->product->price}}</td>
 								<td class="invertor">
+									@if($cart->product->offer_price!=NULL)
+									&#2547; {{$cart->product->price-$cart->product->price*$cart->product->offer_price/100}}
+									@else
+									&#2547; {{$cart->product->price}}
+									@endif
+									</td>
+								<td class="invertor">
+									@if($cart->product->offer_price!=NULL)
+									@php
+										$price = $cart->product->price-$cart->product->price*$cart->product->offer_price/100;
+										$total_price += $price*$cart->product_quantity;
+									@endphp
+									&#2547; {{$price*$cart->product_quantity}}</td>
+									@else
 									@php
 										$total_price += $cart->product->price*$cart->product_quantity;
 									@endphp
 									&#2547; {{$cart->product->price*$cart->product_quantity}}</td>
+									@endif
+									
 								<td class="invertor">
 									<div class="check">
 										<form method="post" action="{{route('cart.delete',$cart->id)}}">
@@ -95,7 +110,7 @@
 							<tr>
 								<td colspan="4"></td>
 								<td>Total Amount =</td>
-								<td>&#2547; {{$total_price}}</td>
+								<td colspan="1">&#2547; {{$total_price}}</td>
 							</tr>
 						</tbody>
 					</table>

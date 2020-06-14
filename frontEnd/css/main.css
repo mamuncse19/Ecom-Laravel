@@ -239,7 +239,7 @@ label{
 
 /*---------------------------- Main_menu_area Section ----------------------*/
 .main_menu_area {
-	background: rgba(3,148,69, .7);
+	background: #0080C7;
 	position: relative;
 	width: 100%;
 	z-index: 999 !important;
@@ -330,6 +330,12 @@ label{
 	color: #f44336;
 }
 
+.sticky-top {
+	position:-webkit-sticky;
+	position:sticky;
+	top:0;
+	z-index:1020;
+}
 
 /*---------------------------- Product_area Section ----------------------*/
 .product_area {
@@ -487,7 +493,7 @@ label{
 /*---------------------------- Feature_products_area Section ----------------------*/
 
 .feature_products_area {
-	padding: 60px 0;
+	padding: 0px 0px 60px 0px;
 }
 
 .feature_title {
@@ -1251,13 +1257,7 @@ label{
                                 ===[ About Page Style ]===
 =====================================================================================*/
 /*---------------------------- Page_title Section ----------------------*/
-.page_title {
-	background-image: url(../images/product2.jpg);
-	height: 400px;
-	background-size: cover;
-	background-position: center;
-	background-color: #ddd;
-}
+
 
 .top_title h2 {
 	text-align: center;
@@ -2823,7 +2823,6 @@ ul.product_social_area li:hover:nth-child(4) a{
 	padding: 5px 0;
 	text-decoration: none;
 	color: #2f2f2f;
-	text-transform: capitalize;
 	letter-spacing: 1px;
 }
 

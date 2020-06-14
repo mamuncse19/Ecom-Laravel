@@ -89,6 +89,8 @@ Product
                 <input class="form-control" placeholder="Price" name="price" type="text">
                 <label>Quantity</label>
                 <input class="form-control" placeholder="Quantity" name="quantity" type="text">
+                <label>Offer Price</label>
+                <input class="form-control" placeholder="Offer Price" name="offer_price" type="text">
                 <label>Category</label>
                 <select class="form-control" name="category_id">
                   <option>Please select category</option>

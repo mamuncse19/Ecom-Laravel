@@ -32,7 +32,7 @@ class BrandController extends Controller
    		$brand->description = $request->description;
    		if($request->hasFile('image')){
    			$image = $request->file('image');
-   			$img_name = time().'_'.$image->getClientOriginalName();
+   			$img_name = time().'.'.$image->getClientOriginalExtension();
    			$location = "images/brand/";
    			if($image->move($location,$img_name)){
    			$brand->image= $img_name;
@@ -71,7 +71,7 @@ class BrandController extends Controller
    		$brand->description = $request->description;
    		if($request->hasFile('image')){
    			$image = $request->file('image');
-   			$img_name = time().'_'.$image->getClientOriginalName();
+   			$img_name = time().'.'.$image->getClientOriginalExtension();
    			$location = "images/brand/";
    			$remove_from_directory = "images/brand/".$brand->image;
    			if($image->move($location,$img_name)){

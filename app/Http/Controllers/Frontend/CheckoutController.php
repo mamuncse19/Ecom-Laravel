@@ -67,6 +67,7 @@ class CheckoutController extends Controller
             $order->message = $request->message;
             $order->transaction_id = $request->transaction_id;
             $order->payment_id = $payment_id;
+            $order->order_date = date('Y-m-d');
 
             $order->save();
 

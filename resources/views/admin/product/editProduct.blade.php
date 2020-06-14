@@ -31,6 +31,8 @@ Product
                 <input class="form-control" value="{{$product->price}}" name="price" type="text">
                 <label>Quantity</label>
                 <input class="form-control" value="{{$product->quantity}}" name="quantity" type="text">
+                <label>Offer Price</label>
+                <input class="form-control" value="{{$product->offer_price}}" name="offer_price" type="text">
                 <label>Category</label>
                 <select class="form-control" name="category_id">
                   

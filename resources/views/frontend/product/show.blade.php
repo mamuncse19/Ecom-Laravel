@@ -1,8 +1,38 @@
 @extends('layouts.master')
 @section('title')
-All Product
+Sub-category
 @endsection
 @section('content')
+
+@php
+$products = $category->products()->paginate(9);
+@endphp
+
+@php
+	$i = 1;
+@endphp
+@foreach($products as $product)
+
+@foreach($product->images as $pro_image)
+@if($i>0)
+<style>
+	.page_title {
+	background-image: url({{ asset('images/product/'.$pro_image->image) }});
+	height: 400px;
+	background-size: cover;
+	background-position: center;
+	background-color: #ddd;
+}
+
+</style>
+
+@endif
+@php
+	$i--;
+@endphp
+@endforeach
+@endforeach
+
 <div class="page_title">
 		<div class="container">
 			<div class="row">
@@ -34,9 +64,6 @@ All Product
 
 						<div class="product_men">
 							<div class="row">
-@php
-$products = $category->products()->paginate(9);
-@endphp
 								
 @foreach($products as $product)
 <div class="col-md-4 col-sm-6 col">
@@ -54,18 +81,21 @@ $products = $category->products()->paginate(9);
 				</div>
 			</div>
 			@if($product->offer_price!=NULL)
-			<span class="product-new-top">Offer</span>
+			<span class="product-new-top">{{$product->offer_price}}% Off</span>
 			@endif
 			<div class="product_view_caption">
 				<a href="{{route('singleProduct.show',$product->slug)}}">
 					<h3>{{$product->title}}</h3>
 				</a>
-				<h4>$35.00
+				<h4>
 					@if($product->offer_price!=NULL)
-					<del>$55.00</del>
+					<del>&#2547; {{$product->price}}</del>
+					&#2547; {{$product->price-$product->price*$product->offer_price/100}}
+					@else
+					&#2547; {{$product->price}}
 					@endif
 				</h4>
-				<a href="#" class="product_add_btn product_btn">Add to Cart</a>
+				@include('pages.cart-button')
 			</div>
 			
 	</div>

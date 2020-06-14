@@ -75,7 +75,7 @@ Slider
               <div class="modal-body pd-20" style="width:600px;">
               	<label>Title</label>
                 <input class="form-control" placeholder="Title" name="title" type="text">
-                <label>Test</label>
+                <label>Text</label>
                 <input class="form-control" placeholder="Text here" name="text" type="text">
                 <label>Image</label>
                 <input class="form-control" name="image" type="file">

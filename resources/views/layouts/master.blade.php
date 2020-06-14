@@ -12,9 +12,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>@yield('title')</title>
     
-    <!-- favicon.ico css -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/1531649874.ico">
-    
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="{{asset('frontEnd/css/bootstrap.min.css')}}" media="all" />
     <!-- icofont css -->
@@ -110,7 +107,7 @@
                 <div class="col-md-3 col-sm-3" style=" padding-top: 0px; margin-top: 0px;">
                     <div class="logo" style=" padding-top: 0px; margin-top: 0px;"><!-- start of logo -->
                         <a href="{{url('/')}}">
-                        <img src="{{asset('frontEnd/images/a2.png')}}" alt="logo"/>
+                        <img src="{{asset('images/logo/logo.png')}}" alt="logo"/>
                     </a>
                     </div><!-- End of logo -->
                 </div>
@@ -137,7 +134,7 @@
         </div>
     </div><!-- End of header_top_area -->
     
-    @yield('navbar')
+    @include('layouts.navBar')
     <!-- End of main_menu_area -->
     
     <!-- start of homepage_slider_area -->
@@ -158,81 +155,8 @@
    
     
     
-    <div class="service_area"><!-- start of service_area -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 serv">
-                    <div class="service_content_area"><!-- start of service_content_area -->
-                        <div class="col-md-3">
-                            <div class="item text-left">
-                                <a href="#"><i class="icofont icofont-car-alt-4"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item_content text-left">
-                                <h3>Free delivery</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis nulla vel est ullamcorper semper. </p>
-                            </div>
-                        </div>
-                    </div><!-- End of service_content_area -->
-                </div>
-                
-                <div class="col-md-4 serv">
-                    <div class="service_content_area"><!-- start of service_content_area -->
-                        <div class="col-md-3">
-                            <div class="item text-left">
-                                <a href="#"><i class="icofont icofont-business-man-alt-2"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item_content text-left">
-                                <h3>Customer care</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis nulla vel est ullamcorper semper. </p>
-                            </div>
-                        </div>                      
-                    </div><!-- End of service_content_area -->
-                </div>
-                
-                <div class="col-md-4 serv">
-                    <div class="service_content_area"><!-- start of service_content_area -->
-                        <div class="col-md-3">
-                            <div class="item text-left">
-                                <a href="#"><i class="icofont icofont-thumbs-up"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item_content text-left">
-                                <h3>good quality</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis nulla vel est ullamcorper semper. </p>
-                            </div>
-                        </div>
-                    </div><!-- End of service_content_area -->
-                </div>
-            </div>
-        </div>
-        <div class="service_area_overlay"></div>
-    </div><!-- End of product_slider_area -->
+   
     
-    <div class="newletter_area"><!-- start of newletter_area -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="newsletter_content"><!-- start of newsletter_content -->
-                        <h3>news letter</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div><!-- End of newsletter_content -->
-                </div>
-                <div class="col-md-7">
-                    <div class="newsletter_form"><!-- start of newsletter_form -->
-                        <form action="#">
-                            <input type="email" placeholder="Email Address here"/>
-                            <button class="newsletter_btn form_btn">Subscribe</button>
-                        </form>
-                    </div><!-- End of newsletter_form -->
-                </div>
-            </div>
-        </div>
-    </div><!-- End of newletter_area -->
     
     
     <div class="footer_area"><!-- start of footer_area -->
@@ -244,10 +168,10 @@
                             <h2>About Us</h2>
                             <div class="footer_title_hor"></div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur imperdiet mauris eget magna consequat ullamcorper. </p>
+                        <p>Coming Soon...</p>
                         <div class="footer_social_nav">
                             <ul>
-                                <li><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/mamunhossain420" target="_blank"><i class="icofont icofont-social-facebook"></i></a></li>
                                 <li><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
                                 <li><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
                                 <li><a href="#"><i class="icofont icofont-social-google-plus"></i></a></li> 
@@ -263,11 +187,9 @@
                     
                     <div class="footer_menu"><!-- start of footer_menu -->
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Clothing</a></li>
-                            <li><a href="#">Electronics</a></li>
-                            <li><a href="#">Personal care</a></li>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li><a href="https://www.facebook.com/mamunhossain420">About</a></li>
+                            
                         </ul>
                     </div><!-- End of footer_menu -->
                 </div>
@@ -279,11 +201,11 @@
                     
                     <div class="footer_category"><!-- start of footer_category -->
                         <ul>
-                            <li><a href="#">Shipping</a></li>
-                            <li><a href="#">Terms & condition</a></li>
-                            <li><a href="#">Fags</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Online Shopping</a></li>
+                            @foreach(App\Model\Category::where('parent_id',NULL)->orderBy('id','asc')->get() as $parent_cat)
+                            <li><a href="{{route('categoryWisePorduct.Show',$parent_cat->id)}}">{{$parent_cat->name}}</a>
+                                
+                            </li>
+                           @endforeach
                         </ul>
                     </div><!-- End of footer_category -->
                 </div>
@@ -297,7 +219,6 @@
                         <ul>
                             <li><a href="#">Login</a></li>
                             <li><a href="#">Registration</a></li>
-                            <li><a href="#">Wishlist</a></li>
                         </ul>
                     </div><!-- End of footer_account -->
                 </div>

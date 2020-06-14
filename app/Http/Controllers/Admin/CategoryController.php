@@ -34,7 +34,7 @@ class CategoryController extends Controller
    		$category->parent_id = $request->parent_id;
    		if($request->hasFile('image')){
    			$image = $request->file('image');
-   			$img_name = time().'_'.$image->getClientOriginalName();
+   			$img_name = time().'.'.$image->getClientOriginalExtension();
    			$location = "images/category/";
    			if($image->move($location,$img_name)){
    			$category->image= $img_name;
@@ -75,7 +75,7 @@ class CategoryController extends Controller
    		$cat->parent_id = $request->parent_id;
    		if($request->hasFile('image')){
    			$image = $request->file('image');
-   			$img_name = time().'_'.$image->getClientOriginalName();
+   			$img_name = time().'.'.$image->getClientOriginalExtension();
    			$location = "images/category/";
    			$remove_from_directory = "images/category/".$cat->image;
    			if($image->move($location,$img_name)){

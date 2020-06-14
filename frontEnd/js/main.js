@@ -228,9 +228,6 @@ $(document).ready(function(){
 		});
 });
 
- $(document).ready(function(){
-    $(".").sticky({topSpacing:0});
-  });
 
 
   

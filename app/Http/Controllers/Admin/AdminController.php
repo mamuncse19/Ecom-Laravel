@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Order;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,8 @@ class AdminController extends Controller
 
    public function index()
     {
-    	return view('admin.dashboard');
+    	$toDay = date('Y-m-d');
+    	$toDaysOrder = Order::where('is_paid','=',1)->where('order_date',$toDay)->get();
+    	return view('admin.dashboard',compact('toDaysOrder'));
     }
 }

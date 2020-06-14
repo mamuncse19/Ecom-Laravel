@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,9 +18,6 @@
   </head>
 
   <body>
-
-    @guest
-    
 <div class="d-flex align-items-center justify-content-center bg-sl-primary ht-100v">
 
       <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white">
@@ -41,12 +39,7 @@
         </form>
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
-    @else
-<?php
- redirect()->intended(route('admin.dashboard'));
-?>
     
-    @endguest
 
     <script src="admin_css_js/lib/jquery/jquery.js"></script>
     <script src="admin_css_js/lib/popper.js/popper.js"></script>

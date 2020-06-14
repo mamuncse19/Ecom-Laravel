@@ -58,7 +58,7 @@ thead {
 
     <div class="invoice-header">
       <div class="float-left site-logo">
-        <img src="{{ public_path("images/logo/logo.png") }}" alt="" style="height: 80px; width: 130px;">
+        <img src="{{ asset('images/logo/logo.png') }}" alt="" style="height: 80px; width: 130px;">
       </div>
       <div class="float-right site-address">
         <h4>bizeller Ltd.</h4>
@@ -109,6 +109,7 @@ thead {
           <tbody>
             @php
             $total_price = 0;
+            $offer_price = 0;
             @endphp
             @foreach ($order->carts as $cart)
             <tr>
@@ -127,13 +128,30 @@ thead {
               <td>
                 @php
                 $total_price += $cart->product->price * $cart->product_quantity;
+                $offer_price += ($cart->product->price*$cart->product->offer_price/100) * $cart->product_quantity;
                 @endphp
-
                 {{ $cart->product->price * $cart->product_quantity }} Taka
               </td>
-              
             </tr>
             @endforeach
+            <tr>
+              <td colspan="3"></td>
+              <td>
+                Sub-Total:
+              </td>
+              <td colspan="2">
+                <strong>  {{ $total_price }} Taka</strong>
+              </td>
+            </tr>
+             <tr>
+              <td colspan="3"></td>
+              <td>
+                Offer Price:
+              </td>
+              <td colspan="2">
+                <strong>  {{ $offer_price }} Taka</strong>
+              </td>
+            </tr>
             <tr>
               <td colspan="3"></td>
               <td>
@@ -158,7 +176,7 @@ thead {
                 Total Amount:
               </td>
               <td colspan="2">
-                <strong>  {{ $total_price + $order->shipping_charge - $order->custom_discount }} Taka</strong>
+                <strong>  {{ $total_price + $order->shipping_cost - $order->custom_discount - $offer_price }} Taka</strong>
               </td>
             </tr>
           </tbody>

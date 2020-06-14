@@ -42,6 +42,7 @@ class ProductController extends Controller
    		$product->slug = Str::slug($request->title);
    		$product->category_id = $request->category_id;
    		$product->brand_id = $request->brand_id;
+      $product->offer_price = $request->offer_price;
    		$product->save();
 
    		// single image insert
@@ -66,8 +67,9 @@ class ProductController extends Controller
 
    		// multiple image insert
    		if(count($request->image)>0){
+        $i = 1;
    			foreach ($request->image as $img) {
-   			$full_name = time().'_'.$img->getClientOriginalName();
+   			$full_name = time().$i.'.'.$img->getClientOriginalExtension();
    			$path = "images/product/";
    			$location = $img->move($path,$full_name);
 
@@ -75,6 +77,7 @@ class ProductController extends Controller
    			$product_image->product_id = $product->id;
    			$product_image->image = $full_name;
    			$product_image->save();
+        $i++;
    			}
    		}
    		$sms = array(
@@ -108,6 +111,7 @@ class ProductController extends Controller
       $product->quantity = $request->quantity;
       $product->category_id = $request->category_id;
       $product->brand_id = $request->brand_id;
+      $product->offer_price = $request->offer_price;
       $product->save();
       $sms = array(
                    'message' => 'Product Updated successfully.',

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container mt-3 mb-5">
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -161,8 +161,9 @@
 
     function get_district(div_id){
         var option = "";
+        var url = "{{url('/')}}";
         $.ajax({
-            url:"http://localhost/newEcommerce/public/division/get/district/"+div_id,
+            url:url+"/division/get/district/"+div_id,
             method:"get",
             dataType:"html",
             success:function(result){

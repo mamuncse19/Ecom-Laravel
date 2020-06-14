@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/order/delete/{id}','Admin\OrderController@destroy')->name('admin.order.delete');
 	Route::get('/order/pay/{id}','Admin\OrderController@paid')->name('admin.order.pay');
 	Route::get('/order/complete/{id}','Admin\OrderController@complete')->name('admin.order.complete');
+	Route::get('/order/confirm/{id}','Admin\OrderController@confirm')->name('admin.order.confirm');
 	Route::post('/order/update/{id}','Admin\OrderController@discountShippingCostUpdate')->name('admin.order.dis-ship-cost-update');
 	Route::get('/order/invoice/{id}','Admin\OrderController@invoiceGenerate')->name('admin.order.invoice-generate');
 
@@ -102,6 +103,7 @@ Route::prefix('products')->group(function(){
 	Route::get('/singleProduct/show/{slug}','Frontend\ProductController@singleProductShow')->name('singleProduct.show');
 	Route::get('/search/product','Frontend\ProductController@productSearch')->name('search');
 	Route::get('/allProduct','Frontend\ProductController@allProduct')->name('allProduct.show');
+	Route::get('/categorize/{id}','Frontend\ProductController@categoryWisePorductShow')->name('categoryWisePorduct.Show');
 	//Category routes for sidebar
 	Route::get('/category','Frontend\CategoryController@index')->name('category.index');
 	Route::get('/category/{id}','Frontend\CategoryController@show')->name('category.show');

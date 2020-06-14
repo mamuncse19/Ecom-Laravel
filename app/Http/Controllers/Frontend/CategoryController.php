@@ -22,5 +22,4 @@ class CategoryController extends Controller
             return view('frontend.product.show',compact('category'));
        }
     }
-
 }
